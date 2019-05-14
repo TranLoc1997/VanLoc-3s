@@ -1,0 +1,65 @@
+﻿@model TaskUser.ViewsModels.ProductViewsModels.ProductViewsModels
+@using TaskUser.Resources
+@inject SharedViewLocalizer Localizer
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="container">
+    @if (ViewBag.ErrorEdit != null)
+    {
+        @Localizer["Edit Failure"]
+        
+    }
+    <form method="post" asp-controller="Product" enctype="multipart/form-data" asp-action="Edit">
+        <legend>@Localizer.GetLocalizedString("lg_editproduct")</legend>
+        @*<input type="hidden" class="form-control" asp-for="Id"  placeholder="Your name" required>*@
+        <div class="form-group col-xs-6">
+            <label for="name-field">@Localizer.GetLocalizedString("lg_brandid")</label>
+            <select class="form-control" asp-for="BrandId" asp-items="@ViewBag.BrandId">
+                @* <option asp-for="StoreId" >@ViewBag.StoreId[""]</option> *@
+            </select>
+            
+            <span asp-validation-for="BrandId"></span>
+        </div>
+        <div class="form-group col-xs-6">
+            <label for="name-field">@Localizer.GetLocalizedString("lg_categoryid")</label>
+            <select class="form-control" asp-for="CategoryId" asp-items="@ViewBag.CategoryId"></select>
+            <span asp-validation-for="CategoryId"></span>
+        </div>
+        <div class="form-group col-xs-6">
+            <label for="name-field">@Localizer.GetLocalizedString("lg_modelyear")</label>
+            <input type="text" class="form-control" asp-for="ModelYear" placeholder="ModelYear" >
+            <span asp-validation-for="ModelYear"></span>
+        </div>
+        <div class="form-group col-xs-6">
+            <label for="name-field">@Localizer.GetLocalizedString("lg_productname")</label>
+            <input type="text" class="form-control" asp-for="ProductName" placeholder="ProductName" >
+            <span asp-validation-for="ProductName"></span>
+        </div>
+        <div class="form-group col-xs-6">
+            <label for="name-field">@Localizer.GetLocalizedString("lg_picture")</label>
+            <input type="file" class="form-control" asp-for="PictureFile" placeholder="Picture" >
+            <span asp-validation-for="PictureFile"></span>
+        </div>
+        <div class="form-group col-xs-6">
+            <label for="name-field">@Localizer.GetLocalizedString("lg_listprice")</label>
+            <input type="number" class="form-control" asp-for="ListPrice" placeholder="ListPrice" >
+            <span asp-validation-for="ListPrice"></span>
+        </div>
+       
+                       
+                       
+        <div class="form-group col-xs-12">
+            <button type="submit" class="btn btn-primary btn-lg btn-block">@Localizer.GetLocalizedString("bt_edit")</button>
+        </div>
+    </form>
+    @* <div class="form-group col-xs-12"> *@
+    @*     <a class="nav-link text-dark" asp-area="" asp-controller="Store" asp-action="Back"> *@
+    @*         <img src="~/img/iconback.png" alt="Smiley face" height="42" width="42"> *@
+    @*         @Localizer["Go back to the main page"] *@
+    @*     </a> *@
+    @* </div> *@
+              
+</div>

@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="sp_username">
+        <value>UserName</value>
+    </data>
+    <data name="cb_rememberme">
+        <value>Remember Me</value>
+    </data>
+    <data name="a_forgotpassword?">
+        <value>Forgot Password ?</value>
+    </data>
+    <data name="btn_login">
+        <value>Login</value>
+    </data>
+    <data name="Sign In">
+        <value>Đăng Nhập</value>
+    </data>
+    <data name="sp_password">
+        <value>Password</value>
+    </data>
+    <!-- store -->
+    <data name="th_email">
+        <value>Email</value>
+    </data>
+    <data name="th_phone">
+        <value>Phone</value>
+    </data>
+    <data name="h1_street">
+        <value>Street</value>
+    </data>
+    <data name="th_city">
+        <value>City</value>
+    </data>
+    <data name="th_state">
+        <value>State</value>
+    </data>
+    <data name="th_zipcode">
+        <value>ZipCode</value>
+    </data>
+    <data name="th_actision">
+        <value>Actision</value>
+    </data>
+    <data name="h1_storemanagement">
+        <value>Store Management</value>
+    </data>
+    <data name="a_areyousureyouwanttodeleteit?">
+        <value>Are you sure you want to delete it ?</value>
+    </data>
+    <!-- createstore -->
+    <data name="lg_addstore">
+        <value>Add Store</value>
+    </data>
+    <data name="lg_storename">
+        <value>Store Name</value>
+    </data>
+    <data name="lg_email">
+        <value>Email</value>
+    </data>
+    <data name="lg_phone">
+        <value>Phone</value>
+    </data>
+    <data name="lg_state">
+        <value>State</value>
+    </data>
+    <data name="lg_street">
+        <value>Street</value>
+    </data>
+    <data name="lg_city">
+        <value>City</value>
+    </data>
+    <data name="lg_zipcode">
+        <value>ZipCode</value>
+    </data>
+    <data name="bt_addnew">
+        <value>Add New</value>
+    </data>
+    <!-- editstore -->
+    <data name="bt_edit">
+        <value>Edit</value>
+    </data>
+    <data name="lg_editstore">
+        <value>Edit Store</value>
+    </data>
+    <!-- category -->
+    <data name="h1_categorymanagement">
+        <value>Category Management</value>
+    </data>
+    <data name="th_categoryname">
+        <value>Category Name</value>
+    </data>
+    <data name="lg_addcategory">
+        <value>Add Category</value>
+    </data>
+    <data name="lg_categoryname">
+        <value>Category Name</value>
+    </data>
+    <data name="bt_addnewcategory">
+        <value>Add New Category</value>
+    </data>
+    <data name="lg_editcategory">
+        <value>Edit Category</value>
+    </data>
+    <!-- brand -->
+    <data name="h1_brandmanagement">
+        <value>Brand Management</value>
+    </data>
+    <data name="th_brandname">
+        <value>Brand Name</value>
+    </data>
+    <data name="lg_addbrand">
+        <value>Add Brand</value>
+    </data>
+    <data name="lg_brandname">
+        <value>Brand Name</value>
+    </data>
+    <data name="lg_addnewbrand">
+        <value>Add New Brand</value>
+    </data>
+    <!-- stock -->
+    <data name="h1_stockmanagement">
+        <value>Stock Management</value>
+    </data>
+    <data name="lg_addstock">
+        <value>Add Stock</value>
+    </data>
+    <data name="lg_editstock">
+        <value>Edit Stock</value>
+    </data>
+    <data name="addnewstock">
+        <value>Add New Stock</value>
+    </data>
+
+    <data name="th_storeid">
+        <value>Store Id</value>
+    </data>
+    <data name="th_productid">
+        <value>Product Id </value>
+    </data>
+    <data name="lg_storeid">
+        <value>Store Id</value>
+    </data>
+    <data name="lg_productid">
+        <value>Product Id</value>
+    </data>
+    <data name="lg_quantity">
+        <value>Quantity</value>
+    </data>
+    <data name="th_quantity">
+        <value>Quantity</value>
+    </data>
+    <!-- product -->
+    <data name="h1_productmanagement">
+        <value>Product Management</value>
+    </data>
+    <data name="th_productname">
+        <value>Product Name</value>
+    </data>
+    <data name="th_brandid">
+        <value>BrandId</value>
+    </data>
+    <data name="th_categoryid">
+        <value>CategoryId</value>
+    </data>
+    <data name="th_modelyear">
+        <value>Model Year</value>
+    </data>
+    <data name="th_picture">
+        <value>Priture</value>
+    </data>
+    <data name="th_listprice">
+        <value>Listprice</value>
+    </data>
+    <data name="lg_editproduct">
+        <value>Edit Product</value>
+    </data>
+    <data name="lg_brandid">
+        <value>BrandId</value>
+    </data>
+    <data name="lg_categoryid">
+        <value>CategoryId</value>
+    </data>
+    <data name="lg_modelyear">
+        <value>Model Year</value>
+    </data>
+    <data name="lg_productname">
+        <value>Product Name</value>
+    </data>
+    <data name="lg_picture">
+        <value>Picture</value>
+    </data>
+    <data name="lg_listprice">
+        <value>List Price</value>
+    </data>
+    <data name="lg_addproduct">
+        <value>Add Product</value>
+    </data>
+    <data name="addnewproduct">
+        <value>Add New Product</value>
+    </data>
+    <!-- User -->
+    <data name="h1_usersmanagement">
+        <value>User Management</value>
+    </data>
+    <data name="th_name">
+        <value>Name</value>
+    </data>
+    <data name="th_isactiver">
+        <value>IsActiver</value>
+    </data>
+
+    <data name="lg_adduser">
+        <value>Add User</value>
+    </data>
+    <data name="lb_name">
+        <value>Name</value>
+    </data>
+    <data name="lb_email">
+        <value>Email</value>
+    </data>
+    <data name="lb_password">
+        <value>Password</value>
+    </data>
+    <data name="lb_phone">
+        <value>Phone</value>
+    </data>
+    <data name="lb_storeid">
+        <value>StoreId</value>
+    </data>
+    <data name="lb_isactiver">
+        <value>IsActiver</value>
+    </data>
+    <data name="bt_addnewuser">
+        <value>Add New User</value>
+    </data>
+    <data name="lg_edituser">
+        <value>Edit User</value>
+    </data>
+</root>

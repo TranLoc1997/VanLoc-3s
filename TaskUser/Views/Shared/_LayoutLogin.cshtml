@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>@ViewData["Title"] - TaskUser</title>
+
+ 
+</head>
+<body>
+<div>
+  <nav>
+    <ul>
+      <li class="nav-item">
+
+        @await Html.PartialAsync("../User/SelectLanguagePartial")
+
+
+
+      </li>
+
+    </ul>
+  </nav>
+</div>
+
+
+
+@RenderBody()
+
+@RenderSection("Scripts", required: false)
+</body>
+</html>

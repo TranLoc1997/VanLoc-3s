@@ -1,0 +1,141 @@
+﻿@model System.Collections.Generic.List<TaskUser.ViewsModels.StoreViewsModels.StoreViewModels>
+
+@using TaskUser.Resources
+ 
+@inject SharedViewLocalizer Localizer
+<link rel="stylesheet" href="~/css/indexcs.css" />
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+
+  
+
+
+<div class="container-fuld">
+    <div class="alert" style="padding-right: 300px">
+        <h1 class="usermanege" style="padding-top: 100px" align="center">
+            @Localizer.GetLocalizedString("h1_storemanagement")
+        </h1>
+        
+        @if (TempData["create"] != null)
+        {
+            <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Store Success"]</h4>
+        
+        
+        }
+        @if (TempData["edit"] != null)
+        {
+            <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Edit Store Success"]</h4>
+        
+        
+        }
+        
+    </div>
+
+    <table class="table table-bordered table-sm">
+        <thead align="center">
+
+        <tr class="table-primary">
+            <th>
+                ID
+            </th>
+            <th>
+                @Localizer.GetLocalizedString("th_storename")
+               
+
+            </th>
+            <th>
+                @Localizer.GetLocalizedString("th_email")
+            
+            </th>
+
+            <th>
+                @Localizer.GetLocalizedString("th_phone")
+               
+            </th>
+            <th>
+                @Localizer.GetLocalizedString("h1_street")
+              
+            </th>
+            <th>
+                @Localizer.GetLocalizedString("th_city")
+               </th>
+            <th>
+                @Localizer.GetLocalizedString("th_state")
+               
+            </th>
+            <th>
+                @Localizer.GetLocalizedString("th_zipcode")
+               
+            </th>
+            <th>
+                @Localizer.GetLocalizedString("th_actision")
+            
+                </th>
+        </tr>
+        </thead>
+        <tbody>
+        <a class="btn" style="color: black" asp-controller="Store" asp-action="Create">
+            <img src="~/img/addStore.png" alt="Smiley face" height="32" width="32">
+        </a>
+
+
+        @foreach (var item in Model)
+        {
+            <tr align="center">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoreName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                @* <td> *@
+                @*     @Html.DisplayFor(modelItem => item.PassWord) *@
+                @* </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Phone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Street)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.State)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ZipCode)
+                </td>
+                <td>
+
+                    <a class="btn" style="color: black" asp-controller="Store" asp-action="Edit" asp-route-id="@item.Id">
+                        <img src="~/img/Edit.png" alt="Smiley face" height="32" width="32">
+                    </a> |
+                    <a class="btn" style="color: black" onclick="return confirm('@Localizer.GetLocalizedString("a_areyousureyouwanttodeleteit?")')" asp-controller="Store" asp-action="Delete" asp-route-id="@item.Id">
+                        <img src="~/img/deleteStore.png" alt="Smiley face" height="32" width="32">
+                    </a>
+                </td>
+            </tr>
+@*              <div id='Paging' style="text-align:center"> *@
+@*                  Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) *@
+@*                  of @Model.PageCount *@
+@* *@
+@*                  @Html.PagedListPager(Model, page => Url.Action("Index", new { page })) *@
+@*              </div> *@
+        }
+        </tbody>
+    </table>
+</div>
+
+
+@* *@
+@* <div>   *@
+@*     @Html.ActionLink("Back to List", "Index")   *@
+@* </div>  *@

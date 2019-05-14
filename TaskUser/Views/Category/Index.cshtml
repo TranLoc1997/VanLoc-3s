@@ -1,0 +1,79 @@
+﻿@model IEnumerable<TaskUser.ViewsModels.CategoryViewsModels.CategoryViewsModels>
+@using TaskUser.Resources
+@inject SharedViewLocalizer Localizer
+<link rel="stylesheet" href="~/css/indexcs.css" />
+
+
+@{
+   
+    Layout = "_Layout";
+}
+
+
+<div class="container-fuld">
+    <h1 align="center">@Localizer.GetLocalizedString("h1_categorymanagement")</h1>
+    @if (TempData["create"] != null)
+    {
+        <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Category Success"]</h4>
+        
+        
+    }
+    @if (@TempData["edit"] != null)
+    {
+        <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Edit Category Success"]</h4>
+        
+        
+    }
+    <table class="table table-bordered table-sm">
+        <thead align="center">
+
+        <tr class="table-primary">
+            <th>
+                ID
+            </th>
+            <th>
+                @Localizer.GetLocalizedString("th_categoryname")
+               
+            </th>
+            <th>
+                @Localizer.GetLocalizedString("th_actision")
+            
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <a class="btn" style="color: black" asp-controller="Category" asp-action="Create">
+            <img src="~/img/addcate.png" alt="Smiley face" height="32" width="32">
+        </a>
+
+
+        @foreach (var item in Model)
+        {
+            <tr align="center">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                
+                
+                <td>
+                    <a class="btn" style="color: black" asp-controller="Category" asp-action="Edit" asp-route-id="@item.Id">
+                        <img src="~/img/editcate.png" alt="Smiley face" height="32" width="32">
+                    </a> |
+                    <a class="btn" style="color: black" onclick="return confirm('@Localizer.GetLocalizedString("a_areyousureyouwanttodeleteit?")')" asp-controller="Category" asp-action="Delete" asp-route-id="@item.Id">
+                        <img src="~/img/deletecate.png" alt="Smiley face" height="32" width="32">
+                    </a>
+                </td>
+            </tr>
+@*              <div id='Paging' style="text-align:center"> *@
+@*                  Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) *@
+@*                  of @Model.PageCount *@
+@* *@
+@*                  @Html.PagedListPager(Model, page => Url.Action("Index", new { page })) *@
+@*              </div> *@
+        }
+        </tbody>
+    </table>
+</div>
