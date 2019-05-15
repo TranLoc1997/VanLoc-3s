@@ -1,12 +1,14 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using TaskUser.Filters;
 using TaskUser.Serivce;
 using TaskUser.Serivice;
 using TaskUser.ViewsModels.ProductViewsModels;
 
 namespace TaskUser.Controllers
 {
+    [ServiceFilter(typeof(ActionFilter))]
     public class ProductController : Controller
     {
         private readonly IProductSerive _productSerive;
@@ -32,8 +34,8 @@ namespace TaskUser.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.BrandId = new SelectList(_brandService.Brands, "Id", "BrandName");  
-            ViewBag.CategoryId = new SelectList(_categoryService.Categories, "Id", "CategoryName");  
+            ViewBag.BrandId = new SelectList(_brandService.Getbrand(), "Id", "BrandName");  
+            ViewBag.CategoryId = new SelectList(_categoryService.GetCategory(), "Id", "CategoryName");  
             return View();
         }
         [HttpPost]
@@ -50,28 +52,28 @@ namespace TaskUser.Controllers
                 }
             }
             ViewBag.ErrorAdd = "Add Failure";
-            ViewBag.CategoryId = new SelectList(_categoryService.Categories, 
+            ViewBag.CategoryId = new SelectList(_categoryService.GetCategory(), 
                 "Id", "CategoryName",product.CategoryId);  
-            ViewBag.BrandId = new SelectList(_brandService.Brands, 
+            ViewBag.BrandId = new SelectList(_brandService.Getbrand(), 
                 "Id", "BrandName",product.BrandId);
             return View();
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int  id)
         {
-            if (id==null)
+            if (id==0)
             {
                 return NotFound();
             }
-            ViewBag.BrandId = new SelectList(_brandService.Brands, "Id", "BrandName");  
-            ViewBag.CategoryId = new SelectList(_categoryService.Categories, "Id", "CategoryName");  
+            ViewBag.BrandId = new SelectList(_brandService.Getbrand(), "Id", "BrandName");  
+            ViewBag.CategoryId = new SelectList(_categoryService.GetCategory(), "Id", "CategoryName");  
             var getProduct = await _productSerive.GetIdProduct(id);
                    
             return View(getProduct);
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(int?id ,ProductViewsModels editProduct)
+        public async Task<IActionResult> Edit(int id ,ProductViewsModels editProduct)
         {
            
             if (ModelState.IsValid)
@@ -88,18 +90,18 @@ namespace TaskUser.Controllers
                     TempData["edit"] = "Edit Product Success";
                     return RedirectToAction("Index");
                 }
-                ViewBag.CategoryId = new SelectList(_categoryService.Categories, 
+                ViewBag.CategoryId = new SelectList(_categoryService.GetCategory(), 
                     "Id", "CategoryName",editProduct.CategoryId);  
-                ViewBag.BrandId = new SelectList(_brandService.Brands, 
+                ViewBag.BrandId = new SelectList(_brandService.Getbrand(), 
                     "Id", "BrandName",editProduct.BrandId);
                 
                 return BadRequest();
                 
             }
             ViewBag.ErrorEdit = "Edit Failure";
-            ViewBag.CategoryId = new SelectList(_categoryService.Categories, 
+            ViewBag.CategoryId = new SelectList(_categoryService.GetCategory(), 
                 "Id", "CategoryName",editProduct.CategoryId);  
-            ViewBag.BrandId = new SelectList(_brandService.Brands, 
+            ViewBag.BrandId = new SelectList(_brandService.Getbrand(), 
                 "Id", "BrandName",editProduct.BrandId);
             return View();
         }

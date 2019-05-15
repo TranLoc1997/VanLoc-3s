@@ -2,7 +2,7 @@
 
 @using TaskUser.ViewsModels.CategoryViewsModels
 @using TaskUser.Resources
-@inject SharedViewLocalizer Localizer
+@inject SharedViewLocalizer<CategoryResource> Localizer
 
 @{
     ViewBag.Title = "title";
@@ -11,17 +11,17 @@
 
 
 <div class="container">
-    @if (ViewBag.ErrorEdit != null)
-    {
-        @Localizer["Edit Failure"]
-        
-    }
+@*     @if (ViewBag.ErrorEdit != null) *@
+@*     { *@
+@*         @Localizer["Edit Failure"] *@
+@*          *@
+@*     } *@
     <form method="post" asp-controller="Category" asp-action="Edit">
-        <legend>@Localizer.GetLocalizedString("lg_editcategory")</legend>
+        <legend>@Localizer.GetLocalizedString("lbl_EditCategory")</legend>
         @*<input type="hidden" class="form-control" asp-for="Id"  placeholder="Your name" required>*@
         <div class="form-group col-xs-6">
-            <label for="name-field">
-                @Localizer.GetLocalizedString("lg_categoryname")
+            <label>
+                @Localizer.GetLocalizedString("lbl_CategoryName")
                 
             </label>
             <input type="text" class="form-control" asp-for="CategoryName" placeholder="CategoryName" >
@@ -31,14 +31,14 @@
                        
         <div class="form-group col-xs-12">
             <button type="submit" class="btn btn-primary btn-lg btn-block">
-                @Localizer.GetLocalizedString("bt_edit")
+                @Localizer.GetLocalizedString("btn_Edit")
             </button>
         </div>
     </form>
     <div class="form-group col-xs-12">
         <a class="nav-link text-dark" asp-area="" asp-controller="Store" asp-action="Back">
             <img src="~/img/iconback.png" alt="Smiley face" height="42" width="42">
-            @Localizer["Go back to the main page"]
+            @* @Localizer["Go back to the main page"] *@
         </a>
     </div>
               

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
@@ -13,9 +14,10 @@ namespace TaskUser.Serivice
     {
         Task<List<CategoryViewsModels>> GetCategoryListAsync();
         Task<CategoryViewsModels> Create(CategoryViewsModels addCategory);
-        IEnumerable<Category> Categories{ get;}
+        IEnumerable<Category> GetCategory();
         Task<CategoryViewsModels> GetIdCategory(int? id);
         Task<CategoryViewsModels> EditCategory(int?id, CategoryViewsModels editCategory);
+        bool IsExistedName(int id, string name);
         void Delete(int id);
     }
 
@@ -49,7 +51,11 @@ namespace TaskUser.Serivice
             await _context.SaveChangesAsync();
             return addCategory;
         }
-        public IEnumerable<Category> Categories => _context.Categories;
+
+        public IEnumerable<Category> GetCategory()
+        {
+            return _context.Categories;
+        }
         public async Task<CategoryViewsModels> GetIdCategory(int? id)
         {
             var findCategory=await _context.Categories.FindAsync(id);
@@ -76,6 +82,10 @@ namespace TaskUser.Serivice
             }
             
 
+        }
+        public bool IsExistedName(int id,string name)
+        {
+            return _context.Categories.Any(x => x.CategoryName == name && x.Id != id);
         }
         public void Delete(int id)
         {

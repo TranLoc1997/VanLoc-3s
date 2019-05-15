@@ -1,6 +1,6 @@
 ﻿@model TaskUser.ViewsModels.StoreViewsModels.StoreViewModels
 @using TaskUser.Resources
-@inject SharedViewLocalizer Localizer
+@inject SharedViewLocalizer<StoreResource> Localizer
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
@@ -8,17 +8,17 @@
 
 
 <div class="container">
-    @if (ViewBag.ErrorAdd != null)
-    {
-        @Localizer["Add Failure"]
-
-    }
+@*     @if (ViewBag.ErrorAdd != null) *@
+@*     { *@
+@*         @Localizer["Add Failure"] *@
+@* *@
+@*     } *@
     <form method="post" asp-controller="Store" asp-action="Create">
-        <legend>@Localizer.GetLocalizedString("lg_addstore")</legend>
+        <legend>@Localizer.GetLocalizedString("ste_lbl_AddStore")</legend>
         @*<input type="hidden" class="form-control" asp-for="Id"  placeholder="Your name" required>*@
         <div class="form-group col-xs-6">
-            <label for="name-field">
-                @Localizer.GetLocalizedString("lg_storename")
+            <label>
+                @Localizer.GetLocalizedString("ste_lbl_StoreName")
                 
             </label>
             <input type="text" class="form-control" asp-for="StoreName" placeholder="StoreName" >
@@ -26,14 +26,14 @@
         </div>
          <div class="form-group col-xs-6">
              <label>
-                 @Localizer.GetLocalizedString("lg_email")
+                 @Localizer.GetLocalizedString("ste_lbl_Email")
                 </label>
              <input type="email" class="form-control" asp-for="Email" placeholder="Email address" >
              <span asp-validation-for="Email"></span>
          </div>
          <div id="subject-select" class="form-group col-xs-12">
              <label>
-                 @Localizer.GetLocalizedString("lg_phone")
+                 @Localizer.GetLocalizedString("ste_lbl_Phone")
                  
              </label>
              <input type="text" class="form-control" asp-for="Phone" placeholder="Phone" >
@@ -41,28 +41,28 @@
          </div>
         <div id="hidden-other-subject" class="form-group col-xs-6 hidden">
             <label>
-                @Localizer.GetLocalizedString("lg_state")
+                @Localizer.GetLocalizedString("ste_lbl_State")
             </label>
             <input type="text" class="form-control" asp-for="State" placeholder="State" />
             <span asp-validation-for="State"></span>
         </div>
-        <div id="hidden-other-subject" class="form-group col-xs-6 hidden">
+        <div class="form-group col-xs-6 hidden">
             <label>
-                @Localizer.GetLocalizedString("lg_street")
+                @Localizer.GetLocalizedString("ste_lbl_Street")
             </label>
             <input type="text" class="form-control" asp-for="Street" placeholder="Street" />
             <span asp-validation-for="Street"></span>
         </div>
-        <div id="hidden-other-subject" class="form-group col-xs-6 hidden">
+        <div class="form-group col-xs-6 hidden">
             <label>
-               @Localizer.GetLocalizedString("lg_city")
+               @Localizer.GetLocalizedString("ste_lbl_City")
             </label>
             <input type="text" class="form-control" asp-for="City" placeholder="City" />
             <span asp-validation-for="City"></span>
         </div>
-        <div id="hidden-other-subject" class="form-group col-xs-6 hidden">
+        <div class="form-group col-xs-6 hidden">
             <label>
-               @Localizer.GetLocalizedString("lg_zipcode")
+               @Localizer.GetLocalizedString("ste_lbl_Zipcode")
             </label>
             <input type="text" class="form-control" asp-for="ZipCode" placeholder="Phone" />
             <span asp-validation-for="ZipCode"></span>
@@ -71,7 +71,7 @@
         <div class="form-group col-xs-12">
             <button type="submit" class="btn btn-primary btn-lg btn-block">
                
-                @Localizer.GetLocalizedString("bt_addnew")
+                @Localizer.GetLocalizedString("btn_AddNewStore")
             </button>
         </div>
     </form>
@@ -79,7 +79,7 @@
         <a class="nav-link text-dark" asp-area="" asp-controller="Store" asp-action="Back">
             <img src="~/img/iconback.png" alt="Smiley face" height="42" width="42">
             @Localizer.GetLocalizedString("lg_addstore")
-            @Localizer["Go back to the main page"]
+            @* @Localizer["Go back to the main page"] *@
         </a>
     </div>
 

@@ -6,10 +6,12 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>@ViewData["Title"] - TaskUser</title>
+    <title>@ViewData["Title"] - TaskUser
+    </title>
+    
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Majestic Admin</title>
+    <link rel="shortcut icon" href="~/img/logo.png" type="image/x-icon">
     <!-- plugins:css -->
     <link rel="stylesheet" href="~/vendors/mdi/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="~/vendors/base/vendor.bundle.base.css">
@@ -32,7 +34,9 @@
             @await Html.PartialAsync("_SibaPartial")
         </div>
         <div class="col-md-10" style="padding-top: 90px">
-            <div class="container-fuld">@RenderBody()</div>
+            <div class="container-fuld">
+                @RenderBody()
+            </div>
         </div>
     </div>
 </div>

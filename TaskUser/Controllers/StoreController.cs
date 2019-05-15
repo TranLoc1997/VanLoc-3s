@@ -1,10 +1,12 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using TaskUser.Serivce;
+using TaskUser.Filters;
+using TaskUser.Serivice;
 using TaskUser.ViewsModels.StoreViewsModels;
 
 namespace TaskUser.Controllers
 {
+    [ServiceFilter(typeof(ActionFilter))]
     public class StoreController : Controller
     {
         private readonly IStoreService _storeService;
@@ -14,13 +16,14 @@ namespace TaskUser.Controllers
             _storeService = storeService;
             
         }
-        // GET
+        
         public async Task<IActionResult> Index()
         {
             var listStore = await _storeService.GetStoreListAsync();
             return View(listStore);
 
         }
+        
         [HttpGet]
         public IActionResult Back()
         {
@@ -51,18 +54,18 @@ namespace TaskUser.Controllers
             return View();
         }
         [HttpGet]
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id==null)
+            if (id==0)
             {
-                return NotFound();
+                return BadRequest();
             }
             var getstore =await _storeService.GetIdStore(id);
            
           return View(getstore);
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(int?id ,EditstoreViewModels editStore)
+        public async Task<IActionResult> Edit(int id ,StoreViewModels editStore)
         {
            
             if (ModelState.IsValid)

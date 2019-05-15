@@ -17,8 +17,8 @@ namespace TaskUser.Serivce
         Task<List<StockViewModels>> GetStockListAsync();
         
         Task<StockViewModels> Create(StockViewModels addStock);
-        
-        IEnumerable<Stock> Stocks{ get;}
+
+        IEnumerable<Stock> GetStock();
         
         Task<StockViewModels> GetIdStock(int? productId , int? storeId);
 
@@ -45,7 +45,11 @@ namespace TaskUser.Serivce
             var listStock = _mapper.Map<List<StockViewModels>>(list);
             return listStock;
         }
-        public IEnumerable<Stock> Stocks => _context.Stocks;
+
+        public IEnumerable<Stock> GetStock()
+        {
+            return _context.Stocks;
+        } 
         public async Task<StockViewModels> Create(StockViewModels addStock)
         {
             var ckeck =await _context.Stocks.FindAsync(addStock.ProductId, addStock.StoreId);

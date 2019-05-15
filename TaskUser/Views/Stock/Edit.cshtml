@@ -1,21 +1,21 @@
 ﻿@model TaskUser.ViewsModels.StockViewsModels.StockViewModels
 @using TaskUser.Resources
-@inject SharedViewLocalizer Localizer
+@inject SharedViewLocalizer<StockResource> Localizer
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
-@if (ViewBag.ErrorEdit != null)
-{
-    @Localizer["Edit Failure"]
-        
-}
+@* @if (ViewBag.ErrorEdit != null) *@
+@* { *@
+@*     @Localizer["Edit Failure"] *@
+@*          *@
+@* } *@
 <form method="post" asp-controller="Stock" enctype="multipart/form-data" asp-action="Edit">
-    <legend>@Localizer.GetLocalizedString("lg_editstock")</legend>
+    <legend>@Localizer.GetLocalizedString("lbl_EditStock")</legend>
     @*<input type="hidden" class="form-control" asp-for="Id"  placeholder="Your name" required>*@
     <div class="form-group col-xs-6">
-        <label for="name-field">@Localizer.GetLocalizedString("lg_storeid")</label>
+        <label>@Localizer.GetLocalizedString("lbl_StoreId")</label>
         <select class="form-control" asp-for="StoreId" asp-items="@ViewBag.StoreId">
             @* <option asp-for="StoreId" >@ViewBag.StoreId[""]</option> *@
         </select>
@@ -23,12 +23,12 @@
         <span asp-validation-for="StoreId"></span>
     </div>
     <div class="form-group col-xs-6">
-        <label for="name-field">@Localizer.GetLocalizedString("lg_productid")</label>
+        <label>@Localizer.GetLocalizedString("lbl_ProductId")</label>
         <select class="form-control" asp-for="ProductId" asp-items="@ViewBag.ProductId"></select>
         <span asp-validation-for="ProductId"></span>
     </div>
     <div class="form-group col-xs-6">
-        <label for="name-field">@Localizer.GetLocalizedString("lg_quantity")</label>
+        <label>@Localizer.GetLocalizedString("lbl_Quantity")</label>
         <input type="text" class="form-control" asp-for="Quantity" placeholder="Quantity" >
         <span asp-validation-for="Quantity"></span>
     </div>
@@ -38,7 +38,7 @@
                        
     <div class="form-group col-xs-12">
         <button type="submit" class="btn btn-primary btn-lg btn-block">
-            @Localizer.GetLocalizedString("bt_edit")
+            @Localizer.GetLocalizedString("btn_Edit")
         </button>
     </div>
 </form>

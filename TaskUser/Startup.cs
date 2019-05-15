@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Reflection;
 using AutoMapper;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor;
@@ -15,12 +13,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
+using TaskUser.Filters;
 using TaskUser.Models;
 using TaskUser.Resources;
 using TaskUser.Serivce;
 using TaskUser.Serivice;
 using TaskUser.Validator;
-using TaskUser.Validator.BrandValidator;
 
 namespace TaskUser
 {
@@ -57,14 +55,16 @@ namespace TaskUser
             services.AddMvc()
                 .AddViewLocalization(opts => { opts.ResourcesPath = "Resources";})
                 .AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix)
-                .AddDataAnnotationsLocalization(options =>
-                {
-                    options.DataAnnotationLocalizerProvider = (type, factory) =>
-                    {
-                        var assemblyName = new AssemblyName(typeof(SharedResource).GetTypeInfo().Assembly.FullName);
-                        return factory.Create("SharedResource", assemblyName.Name);
-                    };
-                });
+                .AddDataAnnotationsLocalization(
+//                    options =>
+//                {
+//                    options.DataAnnotationLocalizerProvider = (type, factory) =>
+//                    {
+//                        var assemblyName = new AssemblyName(typeof(SharedResource).GetTypeInfo().Assembly.FullName);
+//                        return factory.Create("SharedResource", assemblyName.Name);
+//                    };
+//                }
+                );
          
             services.Configure<RequestLocalizationOptions>(options =>
             {
@@ -98,12 +98,36 @@ namespace TaskUser
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IBrandService, BrandService>();
             services.AddTransient<IStockService, StockService>();
-            services.AddSingleton<SharedViewLocalizer>();
+            services.AddSingleton<SharedViewLocalizer<CategoryResource>>();
+            services.AddSingleton<SharedViewLocalizer<BrandResource>>();
+            services.AddSingleton<SharedViewLocalizer<ProductResource>>();
+            services.AddSingleton<SharedViewLocalizer<LoginResource>>();
+            services.AddSingleton<SharedViewLocalizer<StockResource>>();
+            services.AddSingleton<SharedViewLocalizer<LayoutResource>>();
+            services.AddSingleton<SharedViewLocalizer<StoreResource>>();
+            services.AddSingleton<SharedViewLocalizer<UserResouce>>();
+            services.AddSingleton<SharedViewLocalizer<PasswordResource>>();
+            services.AddSingleton<SharedViewLocalizer<StockValidatorResource>>();
+            services.AddSingleton<SharedViewLocalizer<StoreValidatorResource>>();
+            services.AddSingleton<SharedViewLocalizer<UsersValidatorResource>>();
+            services.AddSingleton<SharedViewLocalizer<LoginValidatorResource>>();
+            services.AddSingleton<SharedViewLocalizer<ProductValidatorResource>>();
+            services.AddSingleton<SharedViewLocalizer<PasswordValidatorResource>>();
+            services.AddSingleton<SharedViewLocalizer<BrandValidatorResource>>();
+            services.AddSingleton<SharedViewLocalizer<CategoryValidatorResource>>();
+            services.AddSingleton<SharedViewLocalizer<BrandValidatorResource>>();
+//            services.AddSingleton<SharedViewLocalizer<StockResoiurce>>();
+//            services.AddSingleton<SharedViewLocalizer<StockResoiurce>>();
+            services.AddLocalization(options => options.ResourcesPath = "Resources");
             services.AddTransient<DbContext>();
             services.AddAutoMapper();
+            services.AddScoped<ActionFilter>();
+            services.AddHttpContextAccessor();
+
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<BrandValidator>()
-          );
+                );
             services.AddDbContext<DataContext>(item => item.UseSqlServer(Configuration.GetConnectionString("userscontext")));
 
 
@@ -137,7 +161,7 @@ namespace TaskUser
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=User}/{action=IndexLogin}/{id?}");
+                    template: "{controller=Login}/{action=IndexLogin}/{id?}");
             });
             
             

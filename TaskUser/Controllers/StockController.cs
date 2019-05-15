@@ -1,11 +1,14 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using TaskUser.Filters;
 using TaskUser.Serivce;
+using TaskUser.Serivice;
 using TaskUser.ViewsModels.StockViewsModels;
 
 namespace TaskUser.Controllers
 {
+    [ServiceFilter(typeof(ActionFilter))]
     public class StockController : Controller
     {
         // GET
@@ -31,8 +34,8 @@ namespace TaskUser.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewBag.StoreId = new SelectList(_storeService.Stores, "Id", "StoreName");
-            ViewBag.ProductID = new SelectList(_productSerive.Products, "Id", "ProductName");
+            ViewBag.StoreId = new SelectList(_storeService.GetStore(), "Id", "StoreName");
+            ViewBag.ProductID = new SelectList(_productSerive.GetProduct(), "Id", "ProductName");
             return View();
         }
         [HttpPost]
@@ -49,29 +52,29 @@ namespace TaskUser.Controllers
                 }
             }
             ViewBag.ErrorAdd = "Add Failure";
-            ViewBag.StoreId = new SelectList(_storeService.Stores, 
+            ViewBag.StoreId = new SelectList(_storeService.GetStore(), 
                 "Id", "StoreName",stock.StoreId);
-            ViewBag.ProductID = new SelectList(_productSerive.Products, 
+            ViewBag.ProductID = new SelectList(_productSerive.GetProduct(), 
                 "Id", "StoreName",stock.ProductId);
             return View();
         }
 
 
         [HttpGet]
-        public  async Task<IActionResult> Edit(int? productId,int?storeId)
+        public  async Task<IActionResult> Edit(int  productId,int?storeId)
         {
-            if (productId==null && storeId==null)
+            if (productId==0 && storeId==0)
             {
-                return NotFound();
+                return BadRequest();
             }
-            ViewBag.StoreId = new SelectList(_storeService.Stores, "Id", "StoreName");
-            ViewBag.ProductID = new SelectList(_productSerive.Products, "Id", "ProductName");
+            ViewBag.StoreId = new SelectList(_storeService.GetStore(), "Id", "StoreName");
+            ViewBag.ProductID = new SelectList(_productSerive.GetProduct(), "Id", "ProductName");
             var getStock = await _stockService.GetIdStock(productId,storeId);
            
             return View(getStock);
         }
         [HttpPost]
-        public async Task<IActionResult> Edit(int? productId,int? storeId,StockViewModels editStock)
+        public async Task<IActionResult> Edit(int productId,int storeId,StockViewModels editStock)
         {
            
             if (ModelState.IsValid)
@@ -90,13 +93,13 @@ namespace TaskUser.Controllers
             }
             
             ViewBag.ErrorEdit = "Edit Failure";
-            ViewBag.StoreId = new SelectList(_storeService.Stores, "Id", "StoreName");
-            ViewBag.ProductID = new SelectList(_productSerive.Products, "Id", "ProductName");
+            ViewBag.StoreId = new SelectList(_storeService.GetStore(), "Id", "StoreName");
+            ViewBag.ProductID = new SelectList(_productSerive.GetProduct(), "Id", "ProductName");
             return View();
         }
 
         [HttpGet]
-        public IActionResult Delete(int? productId,int? storeId)
+        public IActionResult Delete(int productId,int storeId)
         {
             _stockService.Delete(productId,storeId);
             

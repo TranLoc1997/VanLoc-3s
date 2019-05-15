@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using TaskUser.Models;
 using TaskUser.Models.Production;
 using TaskUser.ViewsModels.BrandViewsModels;
-using TaskUser.ViewsModels.CategorieViewsModels;
 
-namespace TaskUser.Serivce
+namespace TaskUser.Serivice
 {
    
     public interface IBrandService
     {
         Task<List<BrandViewsModels>> GetBranListAsync();
         Task<BrandViewsModels> Create(BrandViewsModels addBrand);
-        IEnumerable<Brand> Brands{ get;}
+        IEnumerable<Brand> Getbrand();
         Task<BrandViewsModels> GetIdbrand(int? id);
         Task<BrandViewsModels> EditBrand(int?id, BrandViewsModels editBrand);
+        bool IsExistedName(int id, string name);
         void Delete(int id);
 //        IEnumerable<Brand> GetBrands();
     }
@@ -37,7 +38,10 @@ namespace TaskUser.Serivce
 //        {
 //            return _context.Brands;
 //        }
-        public IEnumerable<Brand> Brands => _context.Brands;
+        public IEnumerable<Brand> Getbrand()
+        {
+            return _context.Brands;
+        } 
 
         
 //       AddBrandViewsModels
@@ -88,6 +92,11 @@ namespace TaskUser.Serivce
            
 
         }
+        public bool IsExistedName(int id,string name)
+        {
+            return _context.Brands.Any(x => x.BrandName == name && x.Id != id);
+        }
+        
         public void Delete(int id)
         {
             var brand = _context.Brands.Find(id);

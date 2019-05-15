@@ -18,12 +18,13 @@ namespace TaskUser.Serivice
         Task<List<UserViewsModels>> GetUserListAsync();
         Task<UserViewsModels> Create(UserViewsModels user);
         Task<EditViewPassword> GetPassword(int? id);
-       IEnumerable<User> Users{ get;}
-        Task<EditUserViewsModels> GetId(int? id);
-        Task<EditUserViewsModels> EditAsync(EditUserViewsModels userParam);
+        IEnumerable<User> GetUser();
+        Task<UserViewsModels> GetId(int? id);
+        Task<UserViewsModels> EditAsync(UserViewsModels userParam);
         User GetName(string name);
         void Delete(int id);
         Task<bool> UserPassword(EditViewPassword passUser);
+        bool IsExistedEmailUser(int id, string email);
 
     }
 
@@ -64,7 +65,11 @@ namespace TaskUser.Serivice
             return listUser;
             
         }
-        public IEnumerable<User> Users => _context.Users;
+
+        public IEnumerable<User> GetUser()
+        {
+            return _context.Users;
+        } 
 
         public async Task<UserViewsModels> Create(UserViewsModels user)
         {
@@ -86,10 +91,10 @@ namespace TaskUser.Serivice
         }
         
         
-        public async Task<EditUserViewsModels> GetId(int? id)
+        public async Task<UserViewsModels> GetId(int? id)
         {
             var findUser=await _context.Users.FindAsync(id);
-            var userDtos = _mapper.Map<EditUserViewsModels>(findUser);
+            var userDtos = _mapper.Map<UserViewsModels>(findUser);
            
             return userDtos;
           
@@ -98,14 +103,14 @@ namespace TaskUser.Serivice
 
         
 
-        public async Task<EditUserViewsModels> EditAsync(EditUserViewsModels userParam)
+        public async Task<UserViewsModels> EditAsync(UserViewsModels userParam)
         {
             try
             {
                 var user = await _context.Users.FindAsync(userParam.Id);
                 
                 user.Name = userParam.Name;
-//                user.Email = userParam.Email;
+               user.Email = userParam.Email;
                 user.Phone = userParam.Phone;
                 user.IsActiver = userParam.IsActiver;
                 user.StoreId = userParam.StoreId;
@@ -173,6 +178,11 @@ namespace TaskUser.Serivice
                 x.Email == email );
 
             return user;
+        }
+        
+        public bool IsExistedEmailUser(int id,string email)
+        {
+            return _context.Users.Any(x => x.Email == email && x.Id != id);
         }
     }
 }

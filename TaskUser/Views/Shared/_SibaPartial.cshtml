@@ -1,5 +1,5 @@
-﻿@using Microsoft.AspNetCore.Mvc.Localization
-@inject IViewLocalizer Localizer
+﻿@using TaskUser.Resources
+@inject SharedViewLocalizer<LayoutResource> Localizer
 
 <div class="container-fluid page-body-wrapper">
   @*     <!-- partial:partials/_sidebar.html --> *@
@@ -14,28 +14,28 @@
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <i class="mdi mdi-circle-outline menu-icon"></i>
-          <span class="menu-title">Product</span>
+          <span class="menu-title">@Localizer.GetLocalizedString("btn_Product")</span>
           <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
-              <a class="nav-link text-dark" asp-area="" asp-controller="Store" asp-action="Index">@Localizer["Store"]</a>
+              <a class="nav-link text-dark" asp-area="" asp-controller="Store" asp-action="Index">@Localizer.GetLocalizedString("btn_Store")</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">@Localizer["Category"]</a>
+              <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">@Localizer.GetLocalizedString("btn_Category")</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">@Localizer["User"]</a>
+              <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Index">@Localizer.GetLocalizedString("btn_User")</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" asp-area="" asp-controller="Brand" asp-action="Index">@Localizer["Brand"]</a>
+              <a class="nav-link text-dark" asp-area="" asp-controller="Brand" asp-action="Index">@Localizer.GetLocalizedString("btn_Brand")</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">@Localizer["Product"]</a>
+              <a class="nav-link text-dark" asp-area="" asp-controller="Product" asp-action="Index">@Localizer.GetLocalizedString("btn_Product")</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-dark" asp-area="" asp-controller="Stock" asp-action="Index">@Localizer["Stock"]</a>
+              <a class="nav-link text-dark" asp-area="" asp-controller="Stock" asp-action="Index">@Localizer.GetLocalizedString("btn_Stock")</a>
             </li>
           </ul>
         </div>

@@ -1,6 +1,6 @@
 ﻿@model TaskUser.ViewsModels.BrandViewsModels.BrandViewsModels
 @using TaskUser.Resources
-@inject SharedViewLocalizer Localizer
+@inject SharedViewLocalizer<BrandResource> Localizer
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
@@ -8,20 +8,19 @@
 
 
 <div class="container">
-    @if (ViewBag.ErrorAdd != null)
-    {
-        @Localizer["Add Failure"]
-              
-    }
+@*     @if (ViewBag.ErrorAdd != null) *@
+@*     { *@
+@*         @Localizer["Add Failure"] *@
+@*                *@
+@*     } *@
     <form method="post" asp-controller="Brand" asp-action="Create">
         <legend>
-            @Localizer.GetLocalizedString("lg_addbrand")
-           
-        </legend>
+            @Localizer.GetLocalizedString("lbl_AddBrand")
+           </legend>
         @*<input type="hidden" class="form-control" asp-for="Id"  placeholder="Your name" required>*@
         <div class="form-group col-xs-6">
-            <label for="name-field">
-                @Localizer.GetLocalizedString("lg_brandname")
+            <label>
+                @Localizer.GetLocalizedString("lbl_BrandName")
             </label>
             <input type="text" class="form-control" asp-for="BrandName" placeholder="BrandName" >
             <span asp-validation-for="BrandName"></span>
@@ -30,7 +29,7 @@
                        
         <div class="form-group col-xs-12">
             <button type="submit" class="btn btn-primary btn-lg btn-block">
-                @Localizer.GetLocalizedString("lg_addnewbrand")
+                @Localizer.GetLocalizedString("lbl_AddNewBrand")
             </button>
         </div>
     </form>

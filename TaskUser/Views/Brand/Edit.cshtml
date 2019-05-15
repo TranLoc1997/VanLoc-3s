@@ -1,6 +1,6 @@
 ﻿@model TaskUser.ViewsModels.BrandViewsModels.BrandViewsModels
 @using TaskUser.Resources
-@inject SharedViewLocalizer Localizer
+@inject SharedViewLocalizer<BrandResource> Localizer
 
 @{
     ViewBag.Title = "title";
@@ -8,20 +8,20 @@
 }
 
 <div class="container">
-    @if (ViewBag.ErrorEdit != null)
-    {
-        @Localizer["Edit Failure"]
-              
-    }
+@*     @if (ViewBag.ErrorEdit != null) *@
+@*     { *@
+@*         @Localizer["Edit Failure"] *@
+@*                *@
+@*     } *@
     <form method="post" asp-controller="Brand" asp-action="Edit">
         <legend>
-            @Localizer.GetLocalizedString("lg_editbrand")
+            @Localizer.GetLocalizedString("lbl_EditBrand")
            
         </legend>
         @*<input type="hidden" class="form-control" asp-for="Id"  placeholder="Your name" required>*@
         <div class="form-group col-xs-6">
-            <label for="name-field">
-                @Localizer.GetLocalizedString("lg_brandname")
+            <label>
+                @Localizer.GetLocalizedString("lbl_BrandName")
             </label>
             <input type="text" class="form-control" asp-for="BrandName" placeholder="BrandName" >
             <span asp-validation-for="BrandName"></span>
@@ -30,7 +30,7 @@
                        
         <div class="form-group col-xs-12">
             <button type="submit" class="btn btn-primary btn-lg btn-block">
-                @Localizer.GetLocalizedString("bt_edit")
+                @Localizer.GetLocalizedString("btn_Edit")
             </button>
         </div>
     </form>

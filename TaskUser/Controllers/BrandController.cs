@@ -1,10 +1,13 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TaskUser.Filters;
 using TaskUser.Serivce;
+using TaskUser.Serivice;
 using TaskUser.ViewsModels.BrandViewsModels;
 
 namespace TaskUser.Controllers
 {
+    [ServiceFilter(typeof(ActionFilter))]
     public class BrandController : Controller
     {
       
@@ -44,9 +47,9 @@ namespace TaskUser.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id==null)
+            if (id==0)
             {
                 return BadRequest();
             }
@@ -56,7 +59,7 @@ namespace TaskUser.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int?id ,BrandViewsModels editBrand)
+        public async Task<IActionResult> Edit(int id ,BrandViewsModels editBrand)
         {
            
             if (ModelState.IsValid)
@@ -81,6 +84,8 @@ namespace TaskUser.Controllers
             
             return RedirectToAction("Index");
         }
+
+        
 
     }
 }

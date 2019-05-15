@@ -10,7 +10,7 @@ namespace TaskUser.Validator.ProductValidator
         public class ProductValidator:AbstractValidator<ProductViewsModels>
         {
        
-            public  ProductValidator(SharedViewLocalizer localizer,IProductSerive productSerive)
+            public  ProductValidator(SharedViewLocalizer<ProductValidatorResource> localizer,IProductSerive productSerive)
             {
                 RuleFor(x => x.BrandId).NotNull().WithMessage(localizer.GetLocalizedString("vld_not empty"));
                 RuleFor(x => x.CategoryId).NotNull().WithMessage(localizer.GetLocalizedString("vld_not empty"));

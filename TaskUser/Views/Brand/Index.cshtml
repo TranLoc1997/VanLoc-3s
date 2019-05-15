@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<TaskUser.ViewsModels.BrandViewsModels.BrandViewsModels>
 @using TaskUser.Resources
-@inject SharedViewLocalizer Localizer
+@inject SharedViewLocalizer<BrandResource> Localizer
 <link rel="stylesheet" href="~/css/indexcs.css" />
 
 @{
@@ -9,19 +9,19 @@
 
 
 <div class="container-fuld">
-    <h1 align="center"> @Localizer.GetLocalizedString("h1_brandmanagement")</h1>
-    @if (TempData["create"] != null)
-    {
-        <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Brand Success"]</h4>
-        
-        
-    }
-    @if (@TempData["edit"] != null)
-    {
-        <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Edit Brand Success"]</h4>
-        
-        
-    }
+    <h1 align="center"> @Localizer.GetLocalizedString("lbl_BrandManagement")</h1>
+@*     @if (TempData["create"] != null) *@
+@*     { *@
+@*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Brand Success"]</h4> *@
+@*          *@
+@*          *@
+@*     } *@
+@*     @if (@TempData["edit"] != null) *@
+@*     { *@
+@*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Edit Brand Success"]</h4> *@
+@*          *@
+@*          *@
+@*     } *@
 
     <table class="table table-bordered table-sm">
         <thead align="center">
@@ -31,12 +31,12 @@
                 ID
             </th>
             <th>
-                @Localizer.GetLocalizedString("th_brandname")
+                @Localizer.GetLocalizedString("lbl_BrandName")
                 
 
             </th>
             <th>
-                @Localizer.GetLocalizedString("th_actision")
+                @Localizer.GetLocalizedString("lbl_manipulation")
                 </th>
         </tr>
         </thead>
@@ -61,7 +61,7 @@
                     <a class="btn" style="color: black" asp-controller="Brand" asp-action="Edit" asp-route-id="@item.Id">
                         <img src="~/img/Edit.png" alt="Smiley face" height="32" width="32">
                     </a> |
-                    <a class="btn" style="color: black" onclick="return confirm('@Localizer.GetLocalizedString("a_areyousureyouwanttodeleteit?")')" asp-controller="Brand" asp-action="Delete" asp-route-id="@item.Id">
+                    <a class="btn" style="color: black" onclick="return confirm('@Localizer.GetLocalizedString("btn_AreYouSureYouWantToDeleteIt?")')" asp-controller="Brand" asp-action="Delete" asp-route-id="@item.Id">
                         <img src="~/img/delete.png" alt="Smiley face" height="32" width="32">
                     </a>
                 </td>

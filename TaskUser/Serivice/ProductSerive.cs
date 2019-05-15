@@ -16,7 +16,8 @@ namespace TaskUser.Serivce
         Task<List<ProductViewsModels>> GetProductListAsync();
 
         Task<ProductViewsModels> Create(ProductViewsModels addProduct);
-        IEnumerable<Product> Products{ get;}
+
+        IEnumerable<Product> GetProduct();
 //        Task<AddStoreViewModels> Create(AddStoreViewModels addStore);
         Task<ProductViewsModels> GetIdProduct(int? id);
         Task<ProductViewsModels> EditProduct(int? id, ProductViewsModels editProduct);
@@ -41,7 +42,10 @@ namespace TaskUser.Serivce
             return listProduct;
         }
         
-        public IEnumerable<Product> Products => _context.Products;
+        public IEnumerable<Product>  GetProduct()
+        {
+            return _context.Products;
+        }
         
         public async Task<ProductViewsModels> Create(ProductViewsModels addProduct)
         {

@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="$USER_HOME$/.Rider2018.1/system/resharper-host/local/Transient/ReSharperHost/v12/SolutionCaches/_TaskUser.1255185389.00" t="ExcludeRecursive" />
+    <e p="$USER_HOME$/.Rider2018.1/system/resharper-host/local/Transient/ReSharperHost/v12/SolutionCaches/_TaskUser.833312436.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p="Controllers" t="Include">
         <e p="BrandController.cs" t="Include" />
         <e p="CategoryController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
+        <e p="LoginController.cs" t="Include" />
         <e p="ProductController.cs" t="Include" />
         <e p="StockController.cs" t="Include" />
         <e p="StoreController.cs" t="Include" />
@@ -14,6 +15,9 @@
       </e>
       <e p="Encryption" t="Include">
         <e p="SecurePasswordHasher.cs" t="Include" />
+      </e>
+      <e p="Filters" t="Include">
+        <e p="ActionFilter.cs" t="Include" />
       </e>
       <e p="Migrations" t="Include">
         <e p="20190502082232_DbDatabase.Designer.cs" t="Include" />
@@ -42,7 +46,14 @@
         <e p="launchSettings.json" t="Include" />
       </e>
       <e p="Resources" t="Include">
-        <e p="SharedResource.cs" t="Include" />
+        <e p="BrandResource.en-US.Designer.cs" t="Include" />
+        <e p="BrandResource.en-US.resx" t="Include" />
+        <e p="BrandResource.vi-VN.Designer.cs" t="Include" />
+        <e p="BrandResource.vi-VN.resx" t="Include" />
+        <e p="CategoryResource.en-US.Designer.cs" t="Include" />
+        <e p="CategoryResource.en-US.resx" t="Include" />
+        <e p="CategoryResource.vi-VN.Designer.cs" t="Include" />
+        <e p="CategoryResource.vi-VN.resx" t="Include" />
         <e p="SharedResource.en-US.Designer.cs" t="Include" />
         <e p="SharedResource.en-US.resx" t="Include" />
         <e p="SharedResource.vi-VN.Designer.cs" t="Include" />
@@ -62,30 +73,14 @@
       <e p="TaskUser.csproj.DotSettings" t="Include" />
       <e p="TaskUser.sln" t="IncludeFlat" />
       <e p="Validator" t="Include">
-        <e p="BrandValidator" t="Include">
-          <e p="BrandValidator.cs" t="Include" />
-        </e>
-        <e p="CategoryValidator" t="Include">
-          <e p="CategoryValidator.cs" t="Include" />
-        </e>
-        <e p="ProductValidator" t="Include">
-          <e p="ProductValidator.cs" t="Include" />
-        </e>
-        <e p="StockValidator" t="Include">
-          <e p="StockValidator.cs" t="Include" />
-        </e>
-        <e p="StoreValidator" t="Include">
-          <e p="EditStoreValidator.cs" t="Include" />
-          <e p="StoreValidator.cs" t="Include" />
-        </e>
-        <e p="UserValidaror" t="Include">
-          <e p="UserValidator.cs" t="Include" />
-        </e>
-        <e p="UserValidator" t="Include">
-          <e p="LoginValidator.cs" t="Include" />
-          <e p="PasswordValidator.cs" t="Include" />
-          <e p="UserValidator.cs" t="Include" />
-        </e>
+        <e p="BrandValidator.cs" t="Include" />
+        <e p="CategoryValidator.cs" t="Include" />
+        <e p="LoginValidator.cs" t="Include" />
+        <e p="PasswordValidator.cs" t="Include" />
+        <e p="ProductValidator.cs" t="Include" />
+        <e p="StockValidator.cs" t="Include" />
+        <e p="StoreValidator.cs" t="Include" />
+        <e p="UsersValidator.cs" t="Include" />
       </e>
       <e p="Views" t="Include">
         <e p="Brand" t="Include">
@@ -101,6 +96,9 @@
         <e p="Home" t="Include">
           <e p="Index.cshtml" t="Include" />
           <e p="Privacy.cshtml" t="Include" />
+        </e>
+        <e p="Login" t="Include">
+          <e p="IndexLogin.cshtml" t="Include" />
         </e>
         <e p="Product" t="Include">
           <e p="Create.cshtml" t="Include" />
@@ -130,9 +128,7 @@
           <e p="Create.cshtml" t="Include" />
           <e p="Edit.cshtml" t="Include" />
           <e p="Index.cshtml" t="Include" />
-          <e p="IndexLogin.cshtml" t="Include" />
           <e p="SelectLanguagePartial.cshtml" t="Include" />
-          <e p="_ChangeMail.cshtml" t="Include" />
           <e p="_ChangePassword.cshtml" t="Include" />
         </e>
         <e p="_ViewImports.cshtml" t="Include" />
@@ -156,13 +152,10 @@
           <e p="StockViewModels.cs" t="Include" />
         </e>
         <e p="StoreViewsModels" t="Include">
-          <e p="EditstoreViewModels.cs" t="Include" />
           <e p="StoreProfile.cs" t="Include" />
           <e p="StoreViewModels.cs" t="Include" />
         </e>
         <e p="UserViewsModels" t="Include">
-          <e p="EditUserViewsModels.cs" t="Include" />
-          <e p="EditViewEmail.cs" t="Include" />
           <e p="EditViewPassword.cs" t="Include" />
           <e p="LoginViewModel.cs" t="Include" />
           <e p="UserProfile.cs" t="Include" />

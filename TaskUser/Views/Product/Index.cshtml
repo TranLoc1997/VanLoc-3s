@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<TaskUser.ViewsModels.ProductViewsModels.ProductViewsModels>
 @using TaskUser.Resources
-@inject SharedViewLocalizer Localizer
+@inject SharedViewLocalizer<ProductResource> Localizer
 <link rel="stylesheet" href="~/css/indexcs.css"/>
 
 
@@ -10,19 +10,19 @@
 }
 
 <div class="container-fuld">
-    <h1 align="center">@Localizer.GetLocalizedString("h1_productmanagement")</h1>
-    @if (TempData["create"] != null)
-    {
-        <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Product Success"]</h4>
-        
-        
-    }
-    @if (TempData["edit"] != null)
-    {
-        <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Edit Product Success"]</h4>
-        
-        
-    }
+    <h1 align="center">@Localizer.GetLocalizedString("lbl_ProductManagement")</h1>
+@*     @if (TempData["create"] != null) *@
+@*     { *@
+@*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Product Success"]</h4> *@
+@*          *@
+@*          *@
+@*     } *@
+@*     @if (TempData["edit"] != null) *@
+@*     { *@
+@*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Edit Product Success"]</h4> *@
+@*          *@
+@*          *@
+@*     } *@
 
     <table class="table table-bordered table-sm">
         <thead align="center">
@@ -32,34 +32,34 @@
                 ID
             </th>
             <th>
-                @Localizer.GetLocalizedString("th_productname")
+                @Localizer.GetLocalizedString("lbl_ProductName")
                
 
             </th>
             <th>
-                @Localizer.GetLocalizedString("th_brandid")
+                @Localizer.GetLocalizedString("lbl_BrandId")
              
             </th>
 
             <th>
-                @Localizer.GetLocalizedString("th_categoryid")
+                @Localizer.GetLocalizedString("lbl_CategoryId")
      
             </th>
             <th>
-                @Localizer.GetLocalizedString("th_modelyear")
+                @Localizer.GetLocalizedString("lbl_ModelYear")
             
             </th>
 
             <th>
-                @Localizer.GetLocalizedString("th_picture")
+                @Localizer.GetLocalizedString("lbl_Picture")
               
             </th>
             <th>
-                @Localizer.GetLocalizedString("th_listprice")
+                @Localizer.GetLocalizedString("lbl_ListPrice")
             
             </th>
             <th>
-                @Localizer.GetLocalizedString("th_actision")
+                @Localizer.GetLocalizedString("lbl_Actision")
             
             </th>
         </tr>
@@ -101,7 +101,7 @@
                     <a class="btn" style="color: black" asp-controller="Product" asp-action="Edit" asp-route-id="@item.Id">
                         <img src="~/img/Edit.png" alt="Smiley face" height="32" width="32">
                     </a> |
-                    <a class="btn" style="color: black" onclick="return confirm('@Localizer.GetLocalizedString("a_areyousureyouwanttodeleteit?")')" asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id">
+                    <a class="btn" style="color: black" onclick="return confirm('@Localizer.GetLocalizedString("btn_AreYouSureYouWantToDeleteIt?")')" asp-controller="Product" asp-action="Delete" asp-route-id="@item.Id">
                         <img src="~/img/deleteproduct.png" alt="Smiley face" height="32" width="32">
                     </a>
                 </td>

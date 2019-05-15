@@ -1,6 +1,6 @@
 ﻿@model TaskUser.ViewsModels.UserViewsModels.UserViewsModels
 @using TaskUser.Resources
-@inject SharedViewLocalizer Localizer
+@inject SharedViewLocalizer<UserResouce> Localizer
 
 @{
    
@@ -8,20 +8,20 @@
 }
 @* <p>@ViewBag.Err</p> *@
 <div class="container">
-    @if (ViewBag.ErrorAdd != null)
-    {
-        @Localizer["Add Failure"]
-        
-    }
+@*     @if (ViewBag.ErrorAdd != null) *@
+@*     { *@
+@*         @Localizer["Add Failure"] *@
+@*          *@
+@*     } *@
     <form method="post" asp-controller="User" asp-action="Create">
         <legend>
-            @Localizer.GetLocalizedString("lg_adduser")
+            @Localizer.GetLocalizedString("lbl_AddUser")
 
         </legend>
         @*<input type="hidden" class="form-control" asp-for="Id"  placeholder="Your name" required>*@
         <div class="form-group col-xs-6">
             <label>
-                @Localizer.GetLocalizedString("lb_name")
+                @Localizer.GetLocalizedString("lbl_Name")
                 
             </label>
             <input type="text" class="form-control" asp-for="Name" placeholder="Your name" required>
@@ -29,26 +29,26 @@
         </div>
         <div class="form-group col-xs-6">
             <label>
-                @Localizer.GetLocalizedString("lb_email")
+                @Localizer.GetLocalizedString("lbl_Email")
             </label>
             <input type="email" class="form-control" asp-for="Email" placeholder="Email address" required>
             <span asp-validation-for="Email"></span>
         </div>
         <div id="subject-select" class="form-group col-xs-12">
             <label>
-                @Localizer.GetLocalizedString("lb_password")
+                @Localizer.GetLocalizedString("lbl_Password")
             </label>
             <input type="password" class="form-control" asp-for="PassWord" placeholder="PassWord" required>
             <span asp-validation-for="PassWord"></span>
         </div>
 
         <div class="form-group col-xs-6 hidden">
-            <label> @Localizer.GetLocalizedString("lb_phone")</label>
+            <label> @Localizer.GetLocalizedString("lbl_Phone")</label>
             <input type="text" class="form-control" asp-for="Phone" placeholder="Phone" required/>
             <span asp-validation-for="Phone"></span>
         </div>
         <div class="form-group col-xs-6 hidden">
-            <label> @Localizer.GetLocalizedString("lb_storeid")</label>
+            <label> @Localizer.GetLocalizedString("lbl_StoreId")</label>
             <select class="form-control" asp-for="StoreId" asp-items="@ViewBag.StoreId">
                 @* <option asp-for="StoreId" >@ViewBag.StoreId[""]</option> *@
             </select>
@@ -56,7 +56,7 @@
         </div>
         <div id="hidden-other-subject" class="form-group col-xs-6 hidden">
             <label>
-                @Localizer.GetLocalizedString("lb_isactiver")
+                @Localizer.GetLocalizedString("lbl_IsActiver")
             </label>
             <input type="checkbox" asp-for="IsActiver" />
             <span asp-validation-for="IsActiver"></span>
@@ -64,7 +64,7 @@
 
         <div class="form-group col-xs-12">
             <button type="submit" class="btn btn-primary btn-lg btn-block">
-                @Localizer.GetLocalizedString("bt_addnewuser")
+                @Localizer.GetLocalizedString("btn_AddNewUser")
             </button>
         </div>
 
@@ -73,7 +73,7 @@
         
         <a class="nav-link text-dark" asp-area="" asp-controller="User" asp-action="Back">
             <img src="~/img/iconback.png" alt="Smiley face" height="42" width="42">
-            @Localizer["Go back to the main page"]
+            @* @Localizer["Go back to the main page"] *@
             
         </a>
     </div>

@@ -1,47 +1,48 @@
 ﻿@model List<TaskUser.ViewsModels.StockViewsModels.StockViewModels>
 @using TaskUser.Resources
-@inject SharedViewLocalizer Localizer
+@inject SharedViewLocalizer<StockResource> Localizer
 
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
+<style type="text/css">.container-fuld { }</style>
 
 <div class="container-fuld">
     
     <h1 align="center">@Localizer.GetLocalizedString("h1_stockmanagement")</h1>
-    @if (TempData["create"] != null)
-    {
-        <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Stock Success"]</h4>
-        
-        
-    }
-    @if (@TempData["edit"] != null)
-    {
-        <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Edit Stock Success"]</h4>
-        
-        
-    }
+@*     @if (TempData["create"] != null) *@
+@*     { *@
+@*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Stock Success"]</h4> *@
+@*          *@
+@*          *@
+@*     } *@
+@*     @if (@TempData["edit"] != null) *@
+@*     { *@
+@*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Edit Stock Success"]</h4> *@
+@*          *@
+@*          *@
+@*     } *@
  <table class="table table-bordered table-sm">
         <thead align="center">
 
         <tr class="table-primary">
             <th>
-                @Localizer.GetLocalizedString("th_storeid")
+                @Localizer.GetLocalizedString("lbl_StoreId")
 
 
             </th>
             <th>
-                @Localizer.GetLocalizedString("th_productid")
+                @Localizer.GetLocalizedString("lbl_ProductId")
 
             </th>
            
             <th>
-                @Localizer.GetLocalizedString("th_quantity")
+                @Localizer.GetLocalizedString("lbl_Quantity")
 
             </th>
             <th>
-                @Localizer.GetLocalizedString("th_actision")
+                @Localizer.GetLocalizedString("lbl_Actision")
 
             </th>
         </tr>
@@ -73,7 +74,7 @@
                     <a class="btn" style="color: black" asp-controller="Stock" asp-action="Edit" asp-route-storeId="@item.StoreId" asp-route-productId="@item.ProductId">
                         <img src="~/img/editstock.png" alt="Smiley face" height="32" width="32">
                     </a> |
-                    <a class="btn" style="color: black" onclick="return confirm('@Localizer.GetLocalizedString("a_areyousureyouwanttodeleteit?")')" 
+                    <a class="btn" style="color: black" onclick="return confirm('@Localizer.GetLocalizedString("btn_AreYouSureYouWantToDeleteIt?")')" 
                        asp-controller="Stock" asp-action="Delete" 
                        asp-route-storeId="@item.StoreId" 
                        asp-route-productId="@item.ProductId">

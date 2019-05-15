@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using TaskUser.Filters;
 using TaskUser.Serivce;
 using TaskUser.Serivice;
 using TaskUser.ViewsModels.CategorieViewsModels;
@@ -7,6 +8,7 @@ using TaskUser.ViewsModels.CategoryViewsModels;
 
 namespace TaskUser.Controllers
 {
+    [ServiceFilter(typeof(ActionFilter))]
     public class CategoryController : Controller
     {
         // GET
@@ -46,9 +48,9 @@ namespace TaskUser.Controllers
         }
 
         [HttpGet]
-        public async  Task<IActionResult> Edit(int? id)
+        public async  Task<IActionResult> Edit(int id)
         {
-            if (id==null)
+            if (id==0)
             {
                 return NotFound();
             }
@@ -58,7 +60,7 @@ namespace TaskUser.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Edit(int?id ,CategoryViewsModels editCategory)
+        public async Task<IActionResult> Edit(int id ,CategoryViewsModels editCategory)
         {
            
             if (ModelState.IsValid)

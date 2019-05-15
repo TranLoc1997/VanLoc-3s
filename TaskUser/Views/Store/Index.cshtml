@@ -2,7 +2,7 @@
 
 @using TaskUser.Resources
  
-@inject SharedViewLocalizer Localizer
+@inject SharedViewLocalizer<StoreResource> Localizer
 <link rel="stylesheet" href="~/css/indexcs.css" />
 
 @{
@@ -17,21 +17,21 @@
 <div class="container-fuld">
     <div class="alert" style="padding-right: 300px">
         <h1 class="usermanege" style="padding-top: 100px" align="center">
-            @Localizer.GetLocalizedString("h1_storemanagement")
+            @Localizer.GetLocalizedString("ste_lbl_StoreManagement")
         </h1>
         
-        @if (TempData["create"] != null)
-        {
-            <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Store Success"]</h4>
-        
-        
-        }
-        @if (TempData["edit"] != null)
-        {
-            <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Edit Store Success"]</h4>
-        
-        
-        }
+@*         @if (TempData["create"] != null) *@
+@*         { *@
+@*             <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Store Success"]</h4> *@
+@*          *@
+@*          *@
+@*         } *@
+@*         @if (TempData["edit"] != null) *@
+@*         { *@
+@*             <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Edit Store Success"]</h4> *@
+@*          *@
+@*          *@
+@*         } *@
         
     </div>
 
@@ -43,36 +43,36 @@
                 ID
             </th>
             <th>
-                @Localizer.GetLocalizedString("th_storename")
+                @Localizer.GetLocalizedString("ste_lbl_StoreName")
                
 
             </th>
             <th>
-                @Localizer.GetLocalizedString("th_email")
+                @Localizer.GetLocalizedString("ste_lbl_Email")
             
             </th>
 
             <th>
-                @Localizer.GetLocalizedString("th_phone")
+                @Localizer.GetLocalizedString("ste_lbl_Phone")
                
             </th>
             <th>
-                @Localizer.GetLocalizedString("h1_street")
+                @Localizer.GetLocalizedString("ste_lbl_Street")
               
             </th>
             <th>
-                @Localizer.GetLocalizedString("th_city")
+                @Localizer.GetLocalizedString("ste_lbl_City")
                </th>
             <th>
-                @Localizer.GetLocalizedString("th_state")
+                @Localizer.GetLocalizedString("ste_lbl_State")
                
             </th>
             <th>
-                @Localizer.GetLocalizedString("th_zipcode")
+                @Localizer.GetLocalizedString("ste_lbl_Zipcode")
                
             </th>
             <th>
-                @Localizer.GetLocalizedString("th_actision")
+                @Localizer.GetLocalizedString("ste_lbl_Actision")
             
                 </th>
         </tr>
@@ -118,7 +118,7 @@
                     <a class="btn" style="color: black" asp-controller="Store" asp-action="Edit" asp-route-id="@item.Id">
                         <img src="~/img/Edit.png" alt="Smiley face" height="32" width="32">
                     </a> |
-                    <a class="btn" style="color: black" onclick="return confirm('@Localizer.GetLocalizedString("a_areyousureyouwanttodeleteit?")')" asp-controller="Store" asp-action="Delete" asp-route-id="@item.Id">
+                    <a class="btn" style="color: black" onclick="return confirm('@Localizer.GetLocalizedString("btn_AreYouSureYouWantToDeleteIt?")')" asp-controller="Store" asp-action="Delete" asp-route-id="@item.Id">
                         <img src="~/img/deleteStore.png" alt="Smiley face" height="32" width="32">
                     </a>
                 </td>

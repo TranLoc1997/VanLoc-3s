@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using Microsoft.EntityFrameworkCore;
@@ -7,15 +8,16 @@ using TaskUser.Models;
 using TaskUser.Models.Sales;
 using TaskUser.ViewsModels.StoreViewsModels;
 
-namespace TaskUser.Serivce
+namespace TaskUser.Serivice
 {
     public interface IStoreService
     {
         Task<List<StoreViewModels>> GetStoreListAsync();
-        IEnumerable<Store> Stores{ get;}
+        IEnumerable<Store> GetStore();
         Task<StoreViewModels> Create(StoreViewModels addStore);
         Task<StoreViewModels> GetIdStore(int? id); //
-        Task<EditstoreViewModels> EditStore(int?id, EditstoreViewModels editStore);
+        Task<StoreViewModels> EditStore(int? id, StoreViewModels editStore);
+        bool IsExistedEmailStore(int id, string email);
         void Delete(int id);
 
 
@@ -41,7 +43,10 @@ namespace TaskUser.Serivce
             return listStore;
         }
 
-        public IEnumerable<Store> Stores => _context.Stores;
+        public IEnumerable<Store> GetStore()
+        {
+            return _context.Stores;
+        } 
         
         public async Task<StoreViewModels> Create(StoreViewModels addStore)
         {            
@@ -68,13 +73,14 @@ namespace TaskUser.Serivce
             return storeDtos;
         }
 
-        public async Task<EditstoreViewModels> EditStore(int?id, EditstoreViewModels editStore)
+        public async Task<StoreViewModels> EditStore(int?id, StoreViewModels editStore)
         {
             try
             {
                 var store =await _context.Stores.FindAsync(id);
             
                 store.StoreName = editStore.StoreName;
+                store.Email = editStore.Email;
                 store.Phone = editStore.Phone;
                 store.City = editStore.City;
                 store.State = editStore.State;
@@ -92,6 +98,13 @@ namespace TaskUser.Serivce
             
 
         }
+        
+        public bool IsExistedEmailStore(int id,string email)
+        {
+            return _context.Stores.Any(x => x.Email == email && x.Id != id);
+        }
+        
+        
         public void Delete(int id)
         {
             var store = _context.Stores.Find(id);

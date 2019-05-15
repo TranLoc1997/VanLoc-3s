@@ -9,7 +9,7 @@ namespace TaskUser.ViewsModels.UserViewsModels
             CreateMap<User, UserViewsModels>();
             CreateMap<User, LoginViewModel>();
             CreateMap<User, EditViewPassword>();
-            CreateMap<User, EditViewEmail>();
+           
         }
         
     }
