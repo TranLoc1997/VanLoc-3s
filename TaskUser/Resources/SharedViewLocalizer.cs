@@ -15,12 +15,16 @@ namespace TaskUser.Resources
             var typeName = type.Name;
             _localizer = factory.Create(typeName, assemblyName);
         }
+<<<<<<< HEAD
         
+=======
+>>>>>>> master
 
         public LocalizedString GetLocalizedString(string key)
         {
             return _localizer[key];
         }
+<<<<<<< HEAD
         
         
 
@@ -68,6 +72,9 @@ namespace TaskUser.Resources
     public class BrandValidatorResource
     {
             
+=======
+
+>>>>>>> master
     }
     
 }

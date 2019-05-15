@@ -7,7 +7,11 @@ namespace TaskUser.Validator
 {
     public class LoginValidator : AbstractValidator<LoginViewModel>
     {
+<<<<<<< HEAD
         public  LoginValidator(IUserService userService, SharedViewLocalizer<LoginValidatorResource> localizer){
+=======
+        public  LoginValidator(IUserService userService, SharedViewLocalizer<SharedResource> localizer){
+>>>>>>> master
             RuleFor(x => x.Email).Length(1, 50).WithMessage(localizer.GetLocalizedString("vld_lengthfrom1to250characters"));
             RuleFor(x => x.Email).EmailAddress().NotNull().WithMessage(localizer.GetLocalizedString("vld_notempty"));
             RuleFor(x => x.Email).EmailAddress().WithMessage(localizer.GetLocalizedString("vld_'Email'isnotavalidemailaddress."));

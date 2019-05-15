@@ -98,6 +98,7 @@ namespace TaskUser
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IBrandService, BrandService>();
             services.AddTransient<IStockService, StockService>();
+<<<<<<< HEAD
             services.AddSingleton<SharedViewLocalizer<CategoryResource>>();
             services.AddSingleton<SharedViewLocalizer<BrandResource>>();
             services.AddSingleton<SharedViewLocalizer<ProductResource>>();
@@ -118,6 +119,9 @@ namespace TaskUser
             services.AddSingleton<SharedViewLocalizer<BrandValidatorResource>>();
 //            services.AddSingleton<SharedViewLocalizer<StockResoiurce>>();
 //            services.AddSingleton<SharedViewLocalizer<StockResoiurce>>();
+=======
+            services.AddSingleton<SharedViewLocalizer<SharedResource>>();
+>>>>>>> master
             services.AddLocalization(options => options.ResourcesPath = "Resources");
             services.AddTransient<DbContext>();
             services.AddAutoMapper();

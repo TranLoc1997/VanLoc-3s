@@ -1,6 +1,10 @@
 ﻿@model TaskUser.ViewsModels.BrandViewsModels.BrandViewsModels
 @using TaskUser.Resources
+<<<<<<< HEAD
 @inject SharedViewLocalizer<BrandResource> Localizer
+=======
+@inject SharedViewLocalizer<SharedResource> Localizer
+>>>>>>> master
 
 @{
     ViewBag.Title = "title";
@@ -30,7 +34,11 @@
                        
         <div class="form-group col-xs-12">
             <button type="submit" class="btn btn-primary btn-lg btn-block">
+<<<<<<< HEAD
                 @Localizer.GetLocalizedString("btn_Edit")
+=======
+                @Localizer.GetLocalizedString("btn_edit")
+>>>>>>> master
             </button>
         </div>
     </form>

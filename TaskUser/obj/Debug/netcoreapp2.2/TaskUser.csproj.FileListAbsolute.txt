@@ -257,7 +257,10 @@
 /home/local/3SI/loc.tv/RiderProjects/TaskUser/VanLoc-3s/TaskUser/obj/Debug/netcoreapp2.2/TaskUser.pdb
 /home/local/3SI/loc.tv/RiderProjects/TaskUser/VanLoc-3s/TaskUser/obj/Debug/netcoreapp2.2/TaskUser.csproj.CopyComplete
 /home/local/3SI/loc.tv/RiderProjects/TaskUser/VanLoc-3s/TaskUser/obj/Debug/netcoreapp2.2/Razor/Views/Login/IndexLogin.g.cshtml.cs
+<<<<<<< HEAD
 /home/local/3SI/loc.tv/RiderProjects/TaskUser/VanLoc-3s/TaskUser/obj/Debug/netcoreapp2.2/TaskUser.Resources.BrandResource.en-US.resources
 /home/local/3SI/loc.tv/RiderProjects/TaskUser/VanLoc-3s/TaskUser/obj/Debug/netcoreapp2.2/TaskUser.Resources.BrandResource.vi-VN.resources
 /home/local/3SI/loc.tv/RiderProjects/TaskUser/VanLoc-3s/TaskUser/obj/Debug/netcoreapp2.2/TaskUser.Resources.CategoryResource.en-US.resources
 /home/local/3SI/loc.tv/RiderProjects/TaskUser/VanLoc-3s/TaskUser/obj/Debug/netcoreapp2.2/TaskUser.Resources.CategoryResource.vi-VN.resources
+=======
+>>>>>>> master
