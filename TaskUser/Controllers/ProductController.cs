@@ -45,13 +45,12 @@ namespace TaskUser.Controllers
             {
                 var addProduct = await _productSerive.Create(product);
                 if (addProduct != null)
-                {  
-                   
-                    TempData["create"] = "Add Product Success";
+                { 
+                    TempData["AddSuccessfuly"] = "msg_Successfuly";
                     return RedirectToAction("Index");
                 }
             }
-            ViewBag.ErrorAdd = "Add Failure";
+            TempData["AddFailure"] = "err_Failure";
             ViewBag.CategoryId = new SelectList(_categoryService.GetCategory(), 
                 "Id", "CategoryName",product.CategoryId);  
             ViewBag.BrandId = new SelectList(_brandService.Getbrand(), 
@@ -60,15 +59,15 @@ namespace TaskUser.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(int  id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            if (id==0)
+            if (id==null)
             {
-                return NotFound();
+                return BadRequest();
             }
             ViewBag.BrandId = new SelectList(_brandService.Getbrand(), "Id", "BrandName");  
             ViewBag.CategoryId = new SelectList(_categoryService.GetCategory(), "Id", "CategoryName");  
-            var getProduct = await _productSerive.GetIdProduct(id);
+            var getProduct = await _productSerive.GetIdProduct(id.Value);
                    
             return View(getProduct);
         }
@@ -80,16 +79,18 @@ namespace TaskUser.Controllers
             {
 //                if (editProduct != null)
 //                {
-//                    
+//                    return BadRequest();
+//
 //                }
                
                 if (id == editProduct.Id)
                 {
                         
                     await _productSerive.EditProduct(id,editProduct);
-                    TempData["edit"] = "Edit Product Success";
+                    TempData["EditSuccessfuly"] = "msg_Successfuly";
                     return RedirectToAction("Index");
                 }
+                TempData["EditFailure"] = "err_Failure";
                 ViewBag.CategoryId = new SelectList(_categoryService.GetCategory(), 
                     "Id", "CategoryName",editProduct.CategoryId);  
                 ViewBag.BrandId = new SelectList(_brandService.Getbrand(), 
@@ -98,7 +99,7 @@ namespace TaskUser.Controllers
                 return BadRequest();
                 
             }
-            ViewBag.ErrorEdit = "Edit Failure";
+            TempData["EditFailure"] = "err_Failure";
             ViewBag.CategoryId = new SelectList(_categoryService.GetCategory(), 
                 "Id", "CategoryName",editProduct.CategoryId);  
             ViewBag.BrandId = new SelectList(_brandService.Getbrand(), 
@@ -107,11 +108,17 @@ namespace TaskUser.Controllers
         }
 
         [HttpGet]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int? id)
         {
-            _productSerive.Delete(id);
-            
+            if (id!=null)
+            {
+                _productSerive.Delete(id.Value);
+                TempData["DeleteSuccessfuly"] = "msg_Successfuly";
+                return RedirectToAction("Index");
+            }
+            TempData["DeleteFailure"] = "err_Failure";
             return RedirectToAction("Index");
+            
         }
     }
 }

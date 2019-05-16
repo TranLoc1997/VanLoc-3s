@@ -38,22 +38,22 @@ namespace TaskUser.Controllers
                 var addBrand = await _brandService.Create(brand);
                 if (addBrand != null)
                 {
-                    TempData["create"] = "Add Brand Success";
+                    TempData["AddSuccessfuly"] = "msg_Successfuly";
                     return RedirectToAction("Index", addBrand);
                 }
             }
-            ViewBag.ErrorAdd = "Add Failure";
+            TempData["AddFailure"] = "err_Failure";
             return View();
         }
 
         [HttpGet]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            if (id==0)
+            if (id==null)
             {
                 return BadRequest();
             }
-            var getBrand = await _brandService.GetIdbrand(id);
+            var getBrand = await _brandService.GetIdbrand(id.Value);
            
             return View(getBrand);
         }
@@ -68,21 +68,27 @@ namespace TaskUser.Controllers
                 {
                     
                     await _brandService.EditBrand(id,editBrand);
-                    TempData["edit"] = "Edit Brand Success";
+                    TempData["EditSuccessfuly"] = "msg_Successfuly";
                     return RedirectToAction("Index");
                     
                 }              
             }
-            ViewBag.ErrorEdit = "Edit Failure";
+            TempData["EditFailure"] = "err_Failure";
             return View();
         }
 
         [HttpGet]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int? id)
         {
-            _brandService.Delete(id);
+            if (id!=null)
+            {
+                _brandService.Delete(id.Value);
+                TempData["DeleteSuccessfuly"] = "msg_Successfuly";
+                return RedirectToAction("Index");
+            }
+            TempData["DeleteFailure"] = "err_Failure";
+           return RedirectToAction("Index");
             
-            return RedirectToAction("Index");
         }
 
         

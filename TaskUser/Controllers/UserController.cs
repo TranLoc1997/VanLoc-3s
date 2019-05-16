@@ -31,49 +31,7 @@ namespace TaskUser.Controllers
             
         }
      
-//        [HttpGet]
-//        public IActionResult IndexLogin()
-//        {
-//            return View();
-//            
-//        }
-//
-//      
-//        [HttpPost]
-//        public IActionResult IndexLogin(LoginViewModel model)
-//        {
-//            
-//            
-//            if (ModelState.IsValid)
-//            
-//            {
-//                var user = _userService.Login(model.Email, model.PassWord);
-//                
-//                if (user)
-//                {
-//                    var name = _userService.GetName(model.Email);
-//                    
-//                    HttpContext.Session.SetString("name",name.Name);
-//                    return RedirectToAction("Index", "User");
-//                }
-//            }
-//            return View();
-//
-//            //----------------------------------------
-//
-//
-//        }
-        
-//        [HttpGet]
-//        public IActionResult Logout()
-//        {
-//
-//            HttpContext.Session.Remove("name"); 
-//            return RedirectToAction("IndexLogin");
-//
-//        }
-        
-        [HttpGet]
+         [HttpGet]
         public IActionResult Back()
         {
 
@@ -93,17 +51,7 @@ namespace TaskUser.Controllers
 
         }
         //ngon ngu
-        [HttpGet]
-        public IActionResult SetLanguage(string culture, string returnUrl)
-        {
-            Response.Cookies.Append(
-                CookieRequestCultureProvider.DefaultCookieName,
-                CookieRequestCultureProvider.MakeCookieValue(new RequestCulture(culture)),
-                new CookieOptions { Expires = DateTimeOffset.UtcNow.AddYears(1) }
-            );
-
-            return LocalRedirect(returnUrl);
-        }
+        
         
         [HttpGet]
         public IActionResult Create()
@@ -117,32 +65,35 @@ namespace TaskUser.Controllers
         {
             if (ModelState.IsValid)
             {
-                var adduser = await _userService.Create(user);
-                if (adduser != null)
+                var addUser = await _userService.Create(user);
+                if (addUser != null)
                 {
                     
-                    TempData["create"] = "Add Users Success";
-                    return RedirectToAction("Index", adduser);
+                    TempData["AddSuccessfuly"] = "msg_Successfuly";
+                    return RedirectToAction("Index", addUser);
                 }
             }
-            ViewBag.ErrorAdd = "Add Failure";
+            TempData["AddFailure"] = "err_Failure";
             ViewBag.StoreId = new SelectList(_storeService.GetStore(), 
                 "Id", "StoreName",user.StoreId);
             return View();
         }
         
         [HttpGet]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(int? id)
         {
-            if (id == 0)
+            if (id == null)
             {
+                
                 return BadRequest();
             }
-            var findUser = await _userService.GetId(id);
+            var findUser = await _userService.GetId(id.Value);
             if (findUser ==null)
             {
+                
                 return BadRequest();
             }
+            
             ViewBag.StoreId = new SelectList(_storeService.GetStore(), "Id", "StoreName");
             return View(findUser);
         }
@@ -155,23 +106,23 @@ namespace TaskUser.Controllers
         {
             if (ModelState.IsValid)
             {
-                TempData["edit"] = "Edit Users Success";
+                
                 await _userService.EditAsync(userParam);
+                TempData["EditSuccessfuly"] = "msg_Successfuly";
                 return RedirectToAction("Index");
             }
-            ViewBag.ErrorEdit = "Edit Failure";
+            TempData["EditFailure"] = "err_Failure";
             ViewBag.StoreId = new SelectList(_storeService.GetStore(), "Id", "StoreName",userParam.StoreId);
             return View(userParam);
         }
         
         [HttpGet]        
-        
         public async Task<IActionResult> EditPassword(int id)
         {
             var findPassword = await _userService.GetPassword(id);
             if (findPassword == null)
             {
-                return NotFound();
+                return BadRequest();
             }
 
             return PartialView("_ChangePassword",findPassword);
@@ -185,22 +136,28 @@ namespace TaskUser.Controllers
                 var users =  await _userService.UserPassword(passwordUser);
                 if (users)
                 {
-                    ViewData["Password"] = "Edit Password Success";
+                    TempData["EditSuccessfuly"] = "msg_Successfuly";
                 }        
-                ViewBag.ErrorEdit = "Edit Failure";
+                TempData["EditFailure"] = "err_Failure";
                 return PartialView("_ChangePassword",passwordUser);       
             }
-            ViewBag.ErrorEdit = "Edit Failure";
+            TempData["EditFailure"] = "err_Failure";
             return PartialView("_ChangePassword",passwordUser);
         }
 
         
         [HttpGet]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int? id)
         {
-            _userService.Delete(id);
-            
+            if (id!=null)
+            {
+                _userService.Delete(id.Value);
+                TempData["DeleteSuccessfuly"] = "msg_Successfuly";
+                return RedirectToAction("Index");
+            }
+            TempData["DeleteFailure"] = "err_Failure";
             return RedirectToAction("Index");
+            
         }
 
 

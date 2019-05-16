@@ -25,11 +25,13 @@ namespace TaskUser.Controllers
             return View(listCateogry);
 
         }
+        
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
+        
         [HttpPost]
         public async Task<IActionResult> Create(CategoryViewsModels category)
         {
@@ -39,22 +41,22 @@ namespace TaskUser.Controllers
                 var addCategory = await _category.Create(category);
                 if (addCategory != null)
                 {
-                    TempData["create"] = "Add Store Success";
+                    TempData["AddSuccessfuly"] = "msg_Successfuly";
                     return RedirectToAction("Index");
                 }
             }
-            ViewBag.ErrorAdd = "Add Failure";
+            TempData["AddFailure"] = "err_Failure";
             return View(category);
         }
 
         [HttpGet]
-        public async  Task<IActionResult> Edit(int id)
+        public async  Task<IActionResult> Edit(int? id)
         {
-            if (id==0)
+            if (id==null)
             {
                 return NotFound();
             }
-            var getCategory = await _category.GetIdCategory(id);
+            var getCategory = await _category.GetIdCategory(id.Value);
            
             return View(getCategory);
         }
@@ -68,20 +70,26 @@ namespace TaskUser.Controllers
                 { 
                     
                     await _category.EditCategory(id,editCategory);
-                    TempData["edit"] = "Edit Category Success";
+                    TempData["EditSuccessfuly"] = "msg_Successfuly";
                     return RedirectToAction("Index");
                     
                 }       
-            ViewBag.ErrorEdit = "Edit Failure";
+            TempData["EditFailure"] = "err_Failure";
             return View();
         }
 
         [HttpGet]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int? id)
         {
-            _category.Delete(id);
-            
+            if (id!=null)
+            {
+                _category.Delete(id.Value);
+                TempData["DeleteSuccessfuly"] = "msg_Successfuly";
+                return RedirectToAction("Index");
+            }
+            TempData["DeleteFailure"] = "err_Failure";
             return RedirectToAction("Index");
+            
         }
     }
 }

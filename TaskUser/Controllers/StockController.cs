@@ -47,11 +47,11 @@ namespace TaskUser.Controllers
                 var addStock = await _stockService.Create(stock);
                 if (addStock != null)
                 {
-                    TempData["create"] = "Add Store Success";
+                    TempData["AddSuccessfuly"] = "msg_Successfuly";
                     return RedirectToAction("Index", addStock);
                 }
             }
-            ViewBag.ErrorAdd = "Add Failure";
+            TempData["AddFailure"] = "err_Failure";
             ViewBag.StoreId = new SelectList(_storeService.GetStore(), 
                 "Id", "StoreName",stock.StoreId);
             ViewBag.ProductID = new SelectList(_productSerive.GetProduct(), 
@@ -84,7 +84,7 @@ namespace TaskUser.Controllers
                     {
                         
                         await _stockService.EditStock(productId,storeId,editStock);
-                        TempData["edit"] = "Edit Category Success";
+                        TempData["EditSuccessfuly"] = "msg_Successfuly";
                         return RedirectToAction("Index");
                     }
                 
@@ -92,18 +92,26 @@ namespace TaskUser.Controllers
                
             }
             
-            ViewBag.ErrorEdit = "Edit Failure";
+            TempData["EditFailure"] = "err_Failure";
             ViewBag.StoreId = new SelectList(_storeService.GetStore(), "Id", "StoreName");
             ViewBag.ProductID = new SelectList(_productSerive.GetProduct(), "Id", "ProductName");
             return View();
         }
 
         [HttpGet]
-        public IActionResult Delete(int productId,int storeId)
+        public IActionResult Delete(int? productId,int? storeId)
         {
-            _stockService.Delete(productId,storeId);
-            
+            if (productId !=null && storeId !=null )
+            {
+                _stockService.Delete(productId.Value,storeId.Value);
+                TempData["DeleteSuccessfuly"] = "msg_Successfuly";
+                return RedirectToAction("Index");
+                
+            }
+            TempData["DeleteFailure"] = "err_Failure";
             return RedirectToAction("Index");
+           
         }
+        
     }
 }

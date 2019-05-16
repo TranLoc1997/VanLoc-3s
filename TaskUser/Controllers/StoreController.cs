@@ -46,21 +46,21 @@ namespace TaskUser.Controllers
                 var addStore = await _storeService.Create(store);
                 if (addStore != null)
                 {
-                    TempData["create"] = "Add Store Success";
+                    TempData["AddSuccessfuly"] = "msg_Successfuly";
                     return RedirectToAction("Index", addStore);
                 }
             }
-            ViewBag.ErrorAdd = "Add Failure";
+            TempData["AddFailure"] = "err_Failure";
             return View();
         }
         [HttpGet]
-        public async Task<IActionResult> Edit(int id)
+        public async Task<IActionResult> Edit(int?id)
         {
-            if (id==0)
+            if (id==null)
             {
                 return BadRequest();
             }
-            var getstore =await _storeService.GetIdStore(id);
+            var getstore =await _storeService.GetIdStore(id.Value);
            
           return View(getstore);
         }
@@ -72,23 +72,30 @@ namespace TaskUser.Controllers
             {
                     if (id == editStore.Id)
                     {
-                        TempData["edit"] = "Edit Store Success";
+                        
                         await _storeService.EditStore(id,editStore);
+                        TempData["EditSuccessfuly"] = "msg_Successfuly";
                         return RedirectToAction("Index");
                     }
-                    ViewBag.ErrorEdit = "Edit Failure";
-                    return View();
+                TempData["EditFailure"] = "err_Failure";
+                    return BadRequest();
             }
-            ViewBag.ErrorEdit = "Edit Failure";
+            TempData["EditFailure"] = "err_Failure";
             return View();
         }
 
         [HttpGet]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int? id)
         {
-            _storeService.Delete(id);
-            
+            if (id!=null)
+            {
+                _storeService.Delete(id.Value);
+                TempData["DeleteSuccessfuly"] = "msg_Successfuly";
+                return RedirectToAction("Index");
+            }
+            TempData["DeleteFailure"] = "err_Failure";
             return RedirectToAction("Index");
+            
         }
     }
 }
