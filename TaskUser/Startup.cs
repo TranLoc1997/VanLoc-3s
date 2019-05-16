@@ -103,9 +103,9 @@ namespace TaskUser
             services.AddSingleton<SharedViewLocalizer<ProductResource>>();
             services.AddSingleton<SharedViewLocalizer<LoginResource>>();
             services.AddSingleton<SharedViewLocalizer<StockResource>>();
-            services.AddSingleton<SharedViewLocalizer<LayoutResource>>();
+            services.AddSingleton<SharedViewLocalizer<CommonResource>>();
             services.AddSingleton<SharedViewLocalizer<StoreResource>>();
-            services.AddSingleton<SharedViewLocalizer<UserResouce>>();
+            services.AddSingleton<SharedViewLocalizer<UserResource>>();
             services.AddSingleton<SharedViewLocalizer<PasswordResource>>();
             services.AddSingleton<SharedViewLocalizer<StockValidatorResource>>();
             services.AddSingleton<SharedViewLocalizer<StoreValidatorResource>>();

@@ -1,6 +1,4 @@
 ﻿@model TaskUser.ViewsModels.StockViewsModels.StockViewModels
-@using TaskUser.Resources
-@inject SharedViewLocalizer<StockResource> Localizer
 
 
 
@@ -14,10 +12,10 @@
 @*          *@
 @* } *@
 <form method="post" asp-controller="Stock" enctype="multipart/form-data" asp-action="Create">
-        <legend>@Localizer.GetLocalizedString("lbl_AddStock")</legend>
+        <legend>@StockLocalizer.GetLocalizedString("lbl_AddStock")</legend>
         @*<input type="hidden" class="form-control" asp-for="Id"  placeholder="Your name" required>*@
         <div class="form-group col-xs-6">
-            <label>@Localizer.GetLocalizedString("lbl_StoreId")</label>
+            <label>@StockLocalizer.GetLocalizedString("lbl_StoreId")</label>
             <select class="form-control" asp-for="StoreId" asp-items="@ViewBag.StoreId">
                 @* <option asp-for="StoreId" >@ViewBag.StoreId[""]</option> *@
             </select>
@@ -25,18 +23,18 @@
             <span asp-validation-for="StoreId"></span>
         </div>
         <div class="form-group col-xs-6">
-            <label>@Localizer.GetLocalizedString("lbl_ProductId")</label>
+            <label>@StockLocalizer.GetLocalizedString("lbl_ProductId")</label>
             <select class="form-control" asp-for="ProductId" asp-items="@ViewBag.ProductId"></select>
             <span asp-validation-for="ProductId"></span>
         </div>
         <div class="form-group col-xs-6">
-            <label>@Localizer.GetLocalizedString("lbl_Quantity")</label>
+            <label>@StockLocalizer.GetLocalizedString("lbl_Quantity")</label>
             <input type="text" class="form-control" asp-for="Quantity" placeholder="Quantity" >
             <span asp-validation-for="Quantity"></span>
         </div>
         <div class="form-group col-xs-12">
             <button type="submit" class="btn btn-primary btn-lg btn-block">
-               @Localizer.GetLocalizedString("btn_AddNewStock")
+               @StockLocalizer.GetLocalizedString("btn_AddNewStock")
             </button>
         </div>
     </form>

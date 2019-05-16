@@ -1,7 +1,5 @@
 ﻿@model TaskUser.ViewsModels.StoreViewsModels.StoreViewModels
-@using TaskUser.Resources
 
-@inject SharedViewLocalizer<StoreResource> Localizer
 
 @{
     ViewBag.Title = "title";
@@ -16,11 +14,11 @@
 @*          *@
 @*     } *@
     <form method="post" asp-controller="Store" asp-action="Edit">
-        <legend>@Localizer.GetLocalizedString("lbl_EditStore")</legend>
+        <legend>@StoreLocalizer.GetLocalizedString("lbl_EditStore")</legend>
         @*<input type="hidden" class="form-control" asp-for="Id"  placeholder="Your name" required>*@
         <div class="form-group col-xs-6">
             <label>
-                @Localizer.GetLocalizedString("lbl_StoreName")
+                @StoreLocalizer.GetLocalizedString("lbl_StoreName")
                 
             </label>
             <input type="text" class="form-control" asp-for="StoreName" placeholder="StoreName" >
@@ -28,14 +26,14 @@
         </div>
          <div class="form-group col-xs-6">
              <label>
-                 @Localizer.GetLocalizedString("lbl_Email")
+                 @StoreLocalizer.GetLocalizedString("lbl_Email")
                 </label>
              <input type="email" class="form-control" asp-for="Email" placeholder="Email address">
              <span asp-validation-for="Email"></span>
          </div>
          <div id="subject-select" class="form-group col-xs-12">
              <label>
-                 @Localizer.GetLocalizedString("lbl_Phone")
+                 @StoreLocalizer.GetLocalizedString("lbl_Phone")
                  
              </label>
              <input type="text" class="form-control" asp-for="Phone" placeholder="Phone" >
@@ -43,28 +41,28 @@
          </div>
         <div class="form-group col-xs-6 hidden">
             <label>
-                @Localizer.GetLocalizedString("lbl_State")
+                @StoreLocalizer.GetLocalizedString("lbl_State")
             </label>
             <input type="text" class="form-control" asp-for="State" placeholder="State" />
             <span asp-validation-for="State"></span>
         </div>
         <div class="form-group col-xs-6 hidden">
             <label>
-                @Localizer.GetLocalizedString("lbl_Street")
+                @StoreLocalizer.GetLocalizedString("lbl_Street")
             </label>
             <input type="text" class="form-control" asp-for="Street" placeholder="Street" />
             <span asp-validation-for="Street"></span>
         </div>
         <div class="form-group col-xs-6 hidden">
             <label>
-               @Localizer.GetLocalizedString("lbl_City")
+               @StoreLocalizer.GetLocalizedString("lbl_City")
             </label>
             <input type="text" class="form-control" asp-for="City" placeholder="City" />
             <span asp-validation-for="City"></span>
         </div>
         <div id="hidden-other-subject" class="form-group col-xs-6 hidden">
             <label>
-               @Localizer.GetLocalizedString("lbl_Zipcode")
+               @StoreLocalizer.GetLocalizedString("lbl_Zipcode")
             </label>
             <input type="text" class="form-control" asp-for="ZipCode" placeholder="Phone" />
             <span asp-validation-for="ZipCode"></span>

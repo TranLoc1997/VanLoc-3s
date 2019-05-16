@@ -23,6 +23,11 @@ using TaskUser.Models;
 
 #line default
 #line hidden
+#line 4 "/home/local/3SI/loc.tv/RiderProjects/VanLoc-3s/TaskUser/Views/_ViewImports.cshtml"
+using TaskUser.Resources;
+
+#line default
+#line hidden
 #line 1 "/home/local/3SI/loc.tv/RiderProjects/VanLoc-3s/TaskUser/Views/User/SelectLanguagePartial.cshtml"
 using Microsoft.AspNetCore.Builder;
 
@@ -49,7 +54,7 @@ using Microsoft.Extensions.Options;
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9c6009cedaa4eedbd478c0eaa8e974e7d9acbf58", @"/Views/User/SelectLanguagePartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6ca2d75e0b56f6cfabef55e279e994f4abb57c3c", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2d5cba43507413bc679cf4227df7d8ac0e05118c", @"/Views/_ViewImports.cshtml")]
     public class Views_User_SelectLanguagePartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -115,12 +120,12 @@ using Microsoft.Extensions.Options;
             WriteLiteral("        <li class=\"btn btn-default\">\n            ");
             EndContext();
             BeginContext(841, 287, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c6009cedaa4eedbd478c0eaa8e974e7d9acbf586621", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "9c6009cedaa4eedbd478c0eaa8e974e7d9acbf586767", async() => {
                 BeginContext(1038, 17, true);
                 WriteLiteral("\n                ");
                 EndContext();
                 BeginContext(1055, 23, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9c6009cedaa4eedbd478c0eaa8e974e7d9acbf587011", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "9c6009cedaa4eedbd478c0eaa8e974e7d9acbf587157", async() => {
                 }
                 );
                 __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -211,6 +216,22 @@ AddHtmlAttributeValue("", 1071, img, 1071, 4, false);
         public IOptions<RequestLocalizationOptions> LocalizationOptions { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public IViewLocalizer Localizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<PasswordResource> PasswordLocalizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<LoginResource> LoginLocalizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<StoreResource> StoreLocalizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<StockResource> StockLocalizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<ProductResource> ProductLocalizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<UserResource> UserLocalizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<CategoryResource> CategoryLocalizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<BrandResource> BrandLocalizer { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]

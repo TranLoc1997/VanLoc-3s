@@ -1,7 +1,5 @@
 ﻿@model List<TaskUser.ViewsModels.StockViewsModels.StockViewModels>
-@using TaskUser.Resources
 
-@inject SharedViewLocalizer<StockResource> Localizer
 
 
 @{
@@ -12,7 +10,7 @@
 
 <div class="container-fuld">
     
-    <h1 align="center">@Localizer.GetLocalizedString("h1_stockmanagement")</h1>
+    <h1 align="center">@StockLocalizer.GetLocalizedString("lbl_StockManagement")</h1>
 @*     @if (TempData["create"] != null) *@
 @*     { *@
 @*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Stock Success"]</h4> *@
@@ -30,21 +28,21 @@
 
         <tr class="table-primary">
             <th>
-                @Localizer.GetLocalizedString("lbl_StoreId")
+                @StockLocalizer.GetLocalizedString("lbl_StoreId")
 
 
             </th>
             <th>
-                @Localizer.GetLocalizedString("lbl_ProductId")
+                @StockLocalizer.GetLocalizedString("lbl_ProductId")
 
             </th>
            
             <th>
-                @Localizer.GetLocalizedString("lbl_Quantity")
+                @StockLocalizer.GetLocalizedString("lbl_Quantity")
 
             </th>
             <th>
-                @Localizer.GetLocalizedString("lbl_Actision")
+                @StockLocalizer.GetLocalizedString("lbl_manipulation")
 
             </th>
         </tr>

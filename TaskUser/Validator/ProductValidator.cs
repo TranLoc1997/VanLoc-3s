@@ -11,12 +11,12 @@ namespace TaskUser.Validator
        
             public  ProductValidator(SharedViewLocalizer<ProductValidatorResource> localizer,IProductSerive productSerive)
             {
-                RuleFor(x => x.BrandId).NotNull().WithMessage(localizer.GetLocalizedString("vld_not empty"));
-                RuleFor(x => x.CategoryId).NotNull().WithMessage(localizer.GetLocalizedString("vld_not empty"));
-                RuleFor(x => x.ListPrice).NotNull().WithMessage(localizer.GetLocalizedString("vld_not empty"));
-                RuleFor(x => x.ModelYear).NotNull().WithMessage(localizer.GetLocalizedString("vld_not empty"));
-                RuleFor(x => x.PictureFile).NotNull().WithMessage(localizer.GetLocalizedString("vld_not empty"));
-                RuleFor(x => x.ProductName).NotNull().WithMessage(localizer.GetLocalizedString("vld_not empty"));
+                RuleFor(x => x.BrandId).NotNull().WithMessage(localizer.GetLocalizedString("msg_NotEmpty"));
+                RuleFor(x => x.CategoryId).NotNull().WithMessage(localizer.GetLocalizedString("msg_NotEmpty"));
+                RuleFor(x => x.ListPrice).NotNull().WithMessage(localizer.GetLocalizedString("msg_NotEmpty"));
+                RuleFor(x => x.ModelYear).NotNull().WithMessage(localizer.GetLocalizedString("msg_NotEmpty"));
+                RuleFor(x => x.PictureFile).NotNull().WithMessage(localizer.GetLocalizedString("msg_NotEmpty"));
+                RuleFor(x => x.ProductName).NotNull().WithMessage(localizer.GetLocalizedString("msg_NotEmpty"));
             }
         
         }

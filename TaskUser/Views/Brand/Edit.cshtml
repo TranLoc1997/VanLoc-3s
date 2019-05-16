@@ -1,7 +1,5 @@
 ﻿@model TaskUser.ViewsModels.BrandViewsModels.BrandViewsModels
-@using TaskUser.Resources
 
-@inject SharedViewLocalizer<BrandResource> Localizer
 
 
 @{
@@ -17,13 +15,13 @@
 @*     } *@
     <form method="post" asp-controller="Brand" asp-action="Edit">
         <legend>
-            @Localizer.GetLocalizedString("lbl_EditBrand")
+            @BrandLocalizer.GetLocalizedString("lbl_EditBrand")
            
         </legend>
         @*<input type="hidden" class="form-control" asp-for="Id"  placeholder="Your name" required>*@
         <div class="form-group col-xs-6">
             <label>
-                @Localizer.GetLocalizedString("lbl_BrandName")
+                @BrandLocalizer.GetLocalizedString("lbl_BrandName")
             </label>
             <input type="text" class="form-control" asp-for="BrandName" placeholder="BrandName" >
             <span asp-validation-for="BrandName"></span>
@@ -32,7 +30,7 @@
                        
         <div class="form-group col-xs-12">
             <button type="submit" class="btn btn-primary btn-lg btn-block">
-                @Localizer.GetLocalizedString("btn_Edit")
+                @BrandLocalizer.GetLocalizedString("btn_Edit")
             </button>
         </div>
     </form>

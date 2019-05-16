@@ -1,8 +1,5 @@
 ﻿@using TaskUser.ViewsModels
 @model LoginViewModel
-@using TaskUser.Resources
- 
-@inject SharedViewLocalizer<LoginResource> Localizer
 
 
 @{
@@ -22,20 +19,20 @@
         <div class="wrap-login100">
             <div class="login100-form-title" >
                 <span class="login100-form-title-1">
-                    @Localizer.GetLocalizedString("lbl_SignIn")
+                    @LoginLocalizer.GetLocalizedString("lbl_SignIn")
                     
                 </span>
             </div>
 
             <form class="login100-form validate-form" asp-action="IndexLogin" asp-controller="Login" method="post">
                 <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-                    <span class="label-input100">@Localizer.GetLocalizedString("lbl_UserName")</span>
+                    <span class="label-input100">@LoginLocalizer.GetLocalizedString("lbl_UserName")</span>
                     <input class="input100" asp-for="Email" type="text">
                     <span class="focus-input100" asp-validation-for="Email"></span>
                 </div>
 
                 <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-                    <span class="label-input100">@Localizer.GetLocalizedString("lgn_lbl_Password")</span>
+                    <span class="label-input100">@LoginLocalizer.GetLocalizedString("lbl_Password")</span>
                     <input asp-for="PassWord" class="input100" type="password">
                     <span class="focus-input100" asp-validation-for="PassWord"></span>
                 </div>
@@ -44,14 +41,14 @@
                     <div class="contact100-form-checkbox">
                         <input class="input-checkbox100"  type="checkbox" name="remember-me">
                         <label class="label-checkbox100" >
-                            @Localizer.GetLocalizedString("lbl_RememberMe") 
+                            @LoginLocalizer.GetLocalizedString("btn_RememberMe") 
                         </label>
                     </div>
 
                     <div>
                         <a href="#" class="txt1">
                             
-                            @Localizer.GetLocalizedString("btn_ForgotPassword?") 
+                            @LoginLocalizer.GetLocalizedString("btn_ForgotPassword?") 
                         </a>
                     </div>
                 </div>
@@ -59,7 +56,7 @@
                 <div class="container-login100-form-btn">
                     <button class="login100-form-btn">
                        
-                        @Localizer.GetLocalizedString("btn_login") 
+                        @LoginLocalizer.GetLocalizedString("btn_Login") 
                     </button>
                 </div>
             </form>

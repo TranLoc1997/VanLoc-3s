@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<TaskUser.ViewsModels.BrandViewsModels.BrandViewsModels>
-@using TaskUser.Resources
-@inject SharedViewLocalizer<BrandResource> Localizer
+
 
 <link rel="stylesheet" href="~/css/indexcs.css" />
 
@@ -10,7 +9,7 @@
 
 
 <div class="container-fuld">
-    <h1 align="center"> @Localizer.GetLocalizedString("lbl_BrandManagement")</h1>
+    <h1 align="center"> @BrandLocalizer.GetLocalizedString("lbl_BrandManagement")</h1>
 @*     @if (TempData["create"] != null) *@
 @*     { *@
 @*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Brand Success"]</h4> *@
@@ -32,13 +31,13 @@
                 ID
             </th>
             <th>
-                @Localizer.GetLocalizedString("lbl_BrandName")
+                @BrandLocalizer.GetLocalizedString("lbl_BrandName")
                 
 
             </th>
             <th>
 
-                @Localizer.GetLocalizedString("lbl_manipulation")
+                @BrandLocalizer.GetLocalizedString("lbl_manipulation")
 
 
                 </th>

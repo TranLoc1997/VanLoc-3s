@@ -11,8 +11,8 @@ namespace TaskUser.Validator
         public CategoryValidator(SharedViewLocalizer<CategoryValidatorResource> localizer ,ICategoryService  categoryService)
         {
             RuleFor(x => x.CategoryName).Must((reg, c) => !categoryService.IsExistedName(reg.Id, reg.CategoryName))
-                .WithMessage(localizer.GetLocalizedString("vld_notequal"));
-            RuleFor(x => x.CategoryName).NotNull().WithMessage(localizer.GetLocalizedString("vld_notempty"));  
+                .WithMessage(localizer.GetLocalizedString("msg_NameCategoryAlreadyExists"));
+            RuleFor(x => x.CategoryName).NotNull().WithMessage(localizer.GetLocalizedString("msg_NotEmpty"));  
 
         }
         

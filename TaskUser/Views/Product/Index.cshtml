@@ -1,7 +1,5 @@
 ﻿@model IEnumerable<TaskUser.ViewsModels.ProductViewsModels.ProductViewsModels>
-@using TaskUser.Resources
 
-@inject SharedViewLocalizer<ProductResource> Localizer
 
 <link rel="stylesheet" href="~/css/indexcs.css"/>
 
@@ -12,7 +10,7 @@
 }
 
 <div class="container-fuld">
-    <h1 align="center">@Localizer.GetLocalizedString("lbl_ProductManagement")</h1>
+    <h1 align="center">@ProductLocalizer.GetLocalizedString("lbl_ProductManagement")</h1>
 @*     @if (TempData["create"] != null) *@
 @*     { *@
 @*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Product Success"]</h4> *@
@@ -34,34 +32,34 @@
                 ID
             </th>
             <th>
-                @Localizer.GetLocalizedString("lbl_ProductName")
+                @ProductLocalizer.GetLocalizedString("lbl_ProductName")
                
 
             </th>
             <th>
-                @Localizer.GetLocalizedString("lbl_BrandId")
+                @ProductLocalizer.GetLocalizedString("lbl_BrandId")
              
             </th>
 
             <th>
-                @Localizer.GetLocalizedString("lbl_CategoryId")
+                @ProductLocalizer.GetLocalizedString("lbl_CategoryId")
      
             </th>
             <th>
-                @Localizer.GetLocalizedString("lbl_ModelYear")
+                @ProductLocalizer.GetLocalizedString("lbl_ModelYear")
             
             </th>
 
             <th>
-                @Localizer.GetLocalizedString("lbl_Picture")
+                @ProductLocalizer.GetLocalizedString("lbl_Picture")
               
             </th>
             <th>
-                @Localizer.GetLocalizedString("lbl_ListPrice")
+                @ProductLocalizer.GetLocalizedString("lbl_ListPrice")
             
             </th>
             <th>
-                @Localizer.GetLocalizedString("lbl_Actision")
+                @ProductLocalizer.GetLocalizedString("lbl_manipulation")
             
             </th>
         </tr>

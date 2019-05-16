@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <data name="lbl_ProductManagement">
+        <value>Quản lý Sản Phẩm</value>
+    </data>
+    <data name="lbl_ProductName">
+        <value>Tên sản phẩm</value>
+    </data>
+    <data name="lbl_BrandId">
+        <value>Id nhãn hiệu</value>
+    </data>
+    <data name="lbl_CategoryId">
+        <value>Id danh mục</value>
+    </data>
+    <data name="lbl_ModelYear">
+        <value>Năm sản xuất</value>
+    </data>
+    <data name="lbl_Picture">
+        <value>Hình Ảnh</value>
+    </data>
+    <data name="lbl_ListPrice">
+        <value>Bảng giá</value>
+    </data>
+    <data name="lbl_EditProduct">
+        <value>Sửa Sản Phẩm</value>
+    </data>
+    <data name="lbl_AddProduct">
+        <value>Thêm Sản Phẩm</value>
+    </data>
+    <data name="btn_AddNewProduct">
+        <value>Thêm sản phẩm mới</value>
+    </data>
+    <data name="lbl_manipulation">
+        <value>Thao tác</value>
+    </data>
+    <data name="btn_Edit">
+        <value>Sửa</value>
+    </data>
+    <data name="btn_AreYouSureYouWantToDeleteIt?">
+        <value>Bạn chắc chắn muốn xóa ?</value>
+    </data>
+</root>

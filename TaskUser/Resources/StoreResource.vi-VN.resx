@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<root>
+    <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+        <xsd:element name="root" msdata:IsDataSet="true">
+            
+        </xsd:element>
+    </xsd:schema>
+    <resheader name="resmimetype">
+        <value>text/microsoft-resx</value>
+    </resheader>
+    <resheader name="version">
+        <value>1.3</value>
+    </resheader>
+    <resheader name="reader">
+        <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <resheader name="writer">
+        <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    </resheader>
+    <!-- store -->
+    <data name="lbl_StoreName">
+        <value>Tên cửa hàng</value>
+    </data>
+    <data name="lbl_AddStore">
+        <value>Thêm cửa hàng</value>
+    </data>
+    <data name="lbl_EditStore">
+        <value>Sửa cửa hàng</value>
+    </data>
+    <data name="lbl_Edit">
+        <value>Sửa</value>
+    </data>
+    <data name="btn_AddNewStore">
+        <value>Thêm Mới Cửa Hàng</value>
+    </data>
+    <data name="lbl_Email">
+        <value>Email</value>
+    </data>
+    <data name="lbl_Phone">
+        <value>Số điện thoại</value>
+    </data>
+    <data name="lbl_Street">
+        <value>Đường</value>
+    </data>
+    <data name="lbl_City">
+        <value>Thành phố</value>
+    </data>
+    <data name="lbl_State">
+        <value>Tiểu bang</value>
+    </data>
+    <data name="lbl_Zipcode">
+        <value>Mã bưu chính</value>
+    </data>
+    <data name="lbl_manipulation">
+        <value>Thao tác</value>
+    </data>
+    <data name="lbl_StoreManagement">
+        <value>Quản Lý Cửa Hàng</value>
+    </data>
+    <data name="btn_AreYouSureYouWantToDeleteIt?">
+        <value>Bạn Có Muốn Xóa ?</value>
+    </data>
+</root>

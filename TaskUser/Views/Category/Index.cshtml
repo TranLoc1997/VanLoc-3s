@@ -1,6 +1,5 @@
 ﻿@model IEnumerable<TaskUser.ViewsModels.CategoryViewsModels.CategoryViewsModels>
-@using TaskUser.Resources
-@inject SharedViewLocalizer<CategoryResource> Localizer
+
 
 <link rel="stylesheet" href="~/css/indexcs.css" />
 
@@ -13,7 +12,7 @@
 
 <div class="container-fuld">
 
-    <h1 align="center">@Localizer.GetLocalizedString("lbl_CategoryManagement")</h1>
+    <h1 align="center">@CategoryLocalizer.GetLocalizedString("lbl_CategoryManagement")</h1>
 @*     @if (TempData["create"] != null) *@
 @*     { *@
 @*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Category Success"]</h4> *@
@@ -35,11 +34,11 @@
             </th>
             <th>
 
-                @Localizer.GetLocalizedString("lbl_CategoryName")
+                @CategoryLocalizer.GetLocalizedString("lbl_CategoryName")
                
             </th>
             <th>
-                @Localizer.GetLocalizedString("lbl_manipulation")
+                @CategoryLocalizer.GetLocalizedString("lbl_manipulation")
 
                
             </th>

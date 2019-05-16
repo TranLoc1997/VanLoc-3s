@@ -50,15 +50,71 @@
         <e p="BrandResource.en-US.resx" t="Include" />
         <e p="BrandResource.vi-VN.Designer.cs" t="Include" />
         <e p="BrandResource.vi-VN.resx" t="Include" />
+        <e p="BrandValidatorResource.en-US.Designer.cs" t="Include" />
+        <e p="BrandValidatorResource.en-US.resx" t="Include" />
+        <e p="BrandValidatorResource.vi-VN.Designer.cs" t="Include" />
+        <e p="BrandValidatorResource.vi-VN.resx" t="Include" />
         <e p="CategoryResource.en-US.Designer.cs" t="Include" />
         <e p="CategoryResource.en-US.resx" t="Include" />
         <e p="CategoryResource.vi-VN.Designer.cs" t="Include" />
         <e p="CategoryResource.vi-VN.resx" t="Include" />
-        <e p="SharedResource.en-US.Designer.cs" t="Include" />
-        <e p="SharedResource.en-US.resx" t="Include" />
-        <e p="SharedResource.vi-VN.Designer.cs" t="Include" />
-        <e p="SharedResource.vi-VN.resx" t="Include" />
+        <e p="CategoryValidatorResource.en-US.Designer.cs" t="Include" />
+        <e p="CategoryValidatorResource.en-US.resx" t="Include" />
+        <e p="CategoryValidatorResource.vi-VN.Designer.cs" t="Include" />
+        <e p="CategoryValidatorResource.vi-VN.resx" t="Include" />
+        <e p="CommonResource.en-US.Designer.cs" t="Include" />
+        <e p="CommonResource.en-US.resx" t="Include" />
+        <e p="CommonResource.vi-VN.Designer.cs" t="Include" />
+        <e p="CommonResource.vi-VN.resx" t="Include" />
+        <e p="LoginResource.en-US.Designer.cs" t="Include" />
+        <e p="LoginResource.en-US.resx" t="Include" />
+        <e p="LoginResource.vi-VN.Designer.cs" t="Include" />
+        <e p="LoginResource.vi-VN.resx" t="Include" />
+        <e p="LoginValidatorResource.en-US.Designer.cs" t="Include" />
+        <e p="LoginValidatorResource.en-US.resx" t="Include" />
+        <e p="LoginValidatorResource.vi-VN.Designer.cs" t="Include" />
+        <e p="LoginValidatorResource.vi-VN.resx" t="Include" />
+        <e p="PasswordResource.en-US.Designer.cs" t="Include" />
+        <e p="PasswordResource.en-US.resx" t="Include" />
+        <e p="PasswordResource.vi-VN.Designer.cs" t="Include" />
+        <e p="PasswordResource.vi-VN.resx" t="Include" />
+        <e p="PasswordValidatorResource.en-US.Designer.cs" t="Include" />
+        <e p="PasswordValidatorResource.en-US.resx" t="Include" />
+        <e p="PasswordValidatorResource.vi-VN.Designer.cs" t="Include" />
+        <e p="PasswordValidatorResource.vi-VN.resx" t="Include" />
+        <e p="ProductResource.en-US.Designer.cs" t="Include" />
+        <e p="ProductResource.en-US.resx" t="Include" />
+        <e p="ProductResource.vi-VN.Designer.cs" t="Include" />
+        <e p="ProductResource.vi-VN.resx" t="Include" />
+        <e p="ProductValidatorResource.en-US.Designer.cs" t="Include" />
+        <e p="ProductValidatorResource.en-US.resx" t="Include" />
+        <e p="ProductValidatorResource.vi-VN.Designer.cs" t="Include" />
+        <e p="ProductValidatorResource.vi-VN.resx" t="Include" />
         <e p="SharedViewLocalizer.cs" t="Include" />
+        <e p="StockResource.en-US.Designer.cs" t="Include" />
+        <e p="StockResource.en-US.resx" t="Include" />
+        <e p="StockResource.vi-VN.Designer.cs" t="Include" />
+        <e p="StockResource.vi-VN.resx" t="Include" />
+        <e p="StockValidatorResource.en-US.Designer.cs" t="Include" />
+        <e p="StockValidatorResource.en-US.resx" t="Include" />
+        <e p="StockValidatorResource.vi-VN.Designer.cs" t="Include" />
+        <e p="StockValidatorResource.vi-VN.resx" t="Include" />
+        <e p="StoreResource.en-US.Designer.cs" t="Include" />
+        <e p="StoreResource.en-US.resx" t="Include" />
+        <e p="StoreResource.vi-VN.Designer.cs" t="Include" />
+        <e p="StoreResource.vi-VN.resx" t="Include" />
+        <e p="StoreValidatorResource.en-US.Designer.cs" t="Include" />
+        <e p="StoreValidatorResource.en-US.resx" t="Include" />
+        <e p="StoreValidatorResource.vi-VN.Designer.cs" t="Include" />
+        <e p="StoreValidatorResource.vi-VN.resx" t="Include" />
+        <e p="UserResource.en-US.Designer.cs" t="Include" />
+        <e p="UserResource.en-US.resx" t="Include" />
+        <e p="UserResource.vi-VN.Designer.cs" t="Include" />
+        <e p="UserResource.vi-VN.resx" t="Include" />
+        <e p="UsersValidatorResource.en-US.Designer.cs" t="Include" />
+        <e p="UsersValidatorResource.en-US.resx" t="Include" />
+        <e p="UsersValidatorResource.vi-VN.Designer.cs" t="Include" />
+        <e p="UsersValidatorResource.vi-VN.resx" t="Include" />
       </e>
       <e p="Serivice" t="Include">
         <e p="BrandService.cs" t="Include" />

@@ -23,13 +23,18 @@ using TaskUser.Models;
 
 #line default
 #line hidden
+#line 4 "/home/local/3SI/loc.tv/RiderProjects/VanLoc-3s/TaskUser/Views/_ViewImports.cshtml"
+using TaskUser.Resources;
+
+#line default
+#line hidden
 #line 1 "/home/local/3SI/loc.tv/RiderProjects/VanLoc-3s/TaskUser/Views/Shared/_CookieConsentPartial.cshtml"
 using Microsoft.AspNetCore.Http.Features;
 
 #line default
 #line hidden
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"829e1d9e90e74b00cc34be1e97ad24fcd54fcda7", @"/Views/Shared/_CookieConsentPartial.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6ca2d75e0b56f6cfabef55e279e994f4abb57c3c", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2d5cba43507413bc679cf4227df7d8ac0e05118c", @"/Views/_ViewImports.cshtml")]
     public class Views_Shared__CookieConsentPartial : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-area", "", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -81,7 +86,7 @@ using Microsoft.AspNetCore.Http.Features;
             WriteLiteral("    <div id=\"cookieConsent\" class=\"alert alert-info alert-dismissible fade show\" role=\"alert\">\n        Use this space to summarize your privacy and cookie use policy. ");
             EndContext();
             BeginContext(428, 72, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "829e1d9e90e74b00cc34be1e97ad24fcd54fcda75168", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "829e1d9e90e74b00cc34be1e97ad24fcd54fcda75314", async() => {
                 BeginContext(486, 10, true);
                 WriteLiteral("Learn More");
                 EndContext();
@@ -135,6 +140,24 @@ using Microsoft.AspNetCore.Http.Features;
 #line hidden
         }
         #pragma warning restore 1998
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<CommonResource> Localizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<PasswordResource> PasswordLocalizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<LoginResource> LoginLocalizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<StoreResource> StoreLocalizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<StockResource> StockLocalizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<ProductResource> ProductLocalizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<UserResource> UserLocalizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<CategoryResource> CategoryLocalizer { get; private set; }
+        [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
+        public SharedViewLocalizer<BrandResource> BrandLocalizer { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]
         public global::Microsoft.AspNetCore.Mvc.ViewFeatures.IModelExpressionProvider ModelExpressionProvider { get; private set; }
         [global::Microsoft.AspNetCore.Mvc.Razor.Internal.RazorInjectAttribute]

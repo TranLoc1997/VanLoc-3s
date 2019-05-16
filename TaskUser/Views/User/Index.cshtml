@@ -1,8 +1,6 @@
 ﻿@using Microsoft.AspNetCore.Mvc.Rendering
 @model List<TaskUser.ViewsModels.UserViewsModels.UserViewsModels>
-@using TaskUser.Resources
 
-@inject SharedViewLocalizer<UserResouce> Localizer
 
 <link rel="stylesheet" href="~/css/indexcs.css" />
 
@@ -19,7 +17,7 @@
     
     <div class="alert" style="padding-right: 300px">
         <h1 class="usermanege" align="center">
-           @Localizer.GetLocalizedString("lbl_UsersManagement")
+           @UserLocalizer.GetLocalizedString("lbl_UserManagement")
         </h1>
         
 @*         @if (TempData["create"] != null) *@
@@ -49,27 +47,27 @@
                 ID
             </th>
             <th>
-                @Localizer.GetLocalizedString("lbl_Name")
+                @UserLocalizer.GetLocalizedString("lbl_Name")
             </th>
             <th>
-                @Localizer.GetLocalizedString("lbl_Email")
+                @UserLocalizer.GetLocalizedString("lbl_Email")
              
             </th>
             @*     <th> *@
             @*         @Localizer["PassWord"] *@
             @*     </th> *@
             <th>
-                @Localizer.GetLocalizedString("lbl_Phone")
+                @UserLocalizer.GetLocalizedString("lbl_Phone")
             </th>
             <th>
-                @Localizer.GetLocalizedString("lbl_IsActiver")
+                @UserLocalizer.GetLocalizedString("lbl_IsActiver")
                </th>
             <th>
-                @Localizer.GetLocalizedString("lbl_StoreId")
+                @UserLocalizer.GetLocalizedString("lbl_StoreId")
                 
             </th>
             <th>
-                @Localizer.GetLocalizedString("lbl_Actision")
+                @UserLocalizer.GetLocalizedString("lbl_manipulation")
                 
             </th>
         </tr>
