@@ -1,10 +1,9 @@
 ﻿using FluentValidation;
-using Microsoft.Extensions.Localization;
 using TaskUser.Resources;
 using TaskUser.Serivce;
 using TaskUser.ViewsModels.ProductViewsModels;
 
-namespace TaskUser.Validator.ProductValidator
+namespace TaskUser.Validator
 {
    
         public class ProductValidator:AbstractValidator<ProductViewsModels>

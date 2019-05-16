@@ -1,10 +1,9 @@
 ﻿using FluentValidation;
-using Microsoft.Extensions.Localization;
 using TaskUser.Resources;
 using TaskUser.Serivice;
 using TaskUser.ViewsModels;
 
-namespace TaskUser.Validator.UserValidator
+namespace TaskUser.Validator
 {
     public class PasswordValidator : AbstractValidator<EditViewPassword>
     {
