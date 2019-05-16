@@ -1,27 +1,22 @@
 ﻿@model IEnumerable<TaskUser.ViewsModels.BrandViewsModels.BrandViewsModels>
-
-
 <link rel="stylesheet" href="~/css/indexcs.css" />
-
 @{
     Layout = "_Layout";
 }
-
-
 <div class="container-fuld">
     <h1 align="center"> @BrandLocalizer.GetLocalizedString("lbl_BrandManagement")</h1>
-@*     @if (TempData["create"] != null) *@
-@*     { *@
-@*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Brand Success"]</h4> *@
-@*          *@
-@*          *@
-@*     } *@
-@*     @if (@TempData["edit"] != null) *@
-@*     { *@
-@*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Edit Brand Success"]</h4> *@
-@*          *@
-@*          *@
-@*     } *@
+    @*     @if (TempData["create"] != null) *@
+    @*     { *@
+    @*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Brand Success"]</h4> *@
+    @*          *@
+    @*          *@
+    @*     } *@
+    @*     @if (@TempData["edit"] != null) *@
+    @*     { *@
+    @*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Edit Brand Success"]</h4> *@
+    @*          *@
+    @*          *@
+    @*     } *@
 
     <table class="table table-bordered table-sm">
         <thead align="center">
@@ -32,23 +27,16 @@
             </th>
             <th>
                 @BrandLocalizer.GetLocalizedString("lbl_BrandName")
-                
-
             </th>
             <th>
-
                 @BrandLocalizer.GetLocalizedString("lbl_manipulation")
-
-
-                </th>
+            </th>
         </tr>
         </thead>
         <tbody>
         <a class="btn" style="color: black" asp-controller="Brand" asp-action="Create">
             <img src="~/img/add.png" alt="Smiley face" height="32" width="32">
         </a>
-
-
         @foreach (var item in Model)
         {
             <tr align="center">
@@ -58,8 +46,6 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.BrandName)
                 </td>
-
-
                 <td>
                     <a class="btn" style="color: black" asp-controller="Brand" asp-action="Edit" asp-route-id="@item.Id">
                         <img src="~/img/Edit.png" alt="Smiley face" height="32" width="32">
