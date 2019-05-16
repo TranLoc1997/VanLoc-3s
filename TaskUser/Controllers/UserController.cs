@@ -38,7 +38,10 @@ namespace TaskUser.Controllers
             return RedirectToAction("Index");
 
         }
-        
+        /// <summary>
+        /// show index of user
+        /// </summary>
+        /// <returns>index of user</returns>
         public async Task<IActionResult> Index()
         {
             var listUser = await _userService.GetUserListAsync();
@@ -50,7 +53,10 @@ namespace TaskUser.Controllers
             return View(listUser);
 
         }
-        //ngon ngu
+    /// <summary>
+    /// get create of user
+    /// </summary>
+    /// <returns>view create of user</returns>
         
         
         [HttpGet]
@@ -59,6 +65,11 @@ namespace TaskUser.Controllers
             ViewBag.StoreId = new SelectList(_storeService.GetStore(), "Id", "StoreName");
             return View();
         }
+/// <summary>
+/// post create of user
+/// </summary>
+/// <param name="user"></param>
+/// <returns>index of User else view</returns>
 
         [HttpPost]
         public async Task<IActionResult> Create(UserViewsModels user)
@@ -78,7 +89,11 @@ namespace TaskUser.Controllers
                 "Id", "StoreName",user.StoreId);
             return View();
         }
-        
+        /// <summary>
+        /// get edit of user
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>create of user</returns>
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -99,7 +114,11 @@ namespace TaskUser.Controllers
         }
 
         
-
+/// <summary>
+/// post edit of user
+/// </summary>
+/// <param name="userParam"></param>
+/// <returns>index of User else view</returns>
 
         [HttpPost]
         public async Task<IActionResult> Edit(UserViewsModels userParam)
@@ -115,7 +134,11 @@ namespace TaskUser.Controllers
             ViewBag.StoreId = new SelectList(_storeService.GetStore(), "Id", "StoreName",userParam.StoreId);
             return View(userParam);
         }
-        
+        /// <summary>
+        /// get edit password 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>view _change Password</returns>
         [HttpGet]        
         public async Task<IActionResult> EditPassword(int id)
         {
@@ -127,7 +150,11 @@ namespace TaskUser.Controllers
 
             return PartialView("_ChangePassword",findPassword);
         }
-   
+   /// <summary>
+   /// post edit password
+   /// </summary>
+   /// <param name="passwordUser"></param>
+   /// <returns>index of User else view</returns>
         [HttpPost]
         public async Task<IActionResult> EditPassword(EditViewPassword passwordUser)
         { 
@@ -145,7 +172,11 @@ namespace TaskUser.Controllers
             return PartialView("_ChangePassword",passwordUser);
         }
 
-        
+        /// <summary>
+        /// delete user
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>view index of user</returns>
         [HttpGet]
         public IActionResult Delete(int? id)
         {

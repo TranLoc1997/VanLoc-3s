@@ -26,7 +26,10 @@ namespace TaskUser.Controllers
            
             
         }
-     
+     /// <summary>
+     /// get page index login
+     /// </summary>
+     /// <returns>view login</returns>
         [HttpGet]
         public IActionResult IndexLogin()
         {
@@ -34,7 +37,11 @@ namespace TaskUser.Controllers
             
         }
 
-      
+        /// <summary>
+        /// login
+        /// </summary>
+        /// <param name="model"></param>
+        /// <returns>view index controller user</returns>
         [HttpPost]
         public IActionResult IndexLogin(LoginViewModel model)
         {
@@ -68,7 +75,12 @@ namespace TaskUser.Controllers
             return RedirectToAction("IndexLogin");
 
         }
-        
+        /// <summary>
+        /// Language
+        /// </summary>
+        /// <param name="culture"></param>
+        /// <param name="returnUrl"></param>
+        /// <returns>localredirect</returns>
         [HttpGet]
         public IActionResult SetLanguage(string culture, string returnUrl)
         {

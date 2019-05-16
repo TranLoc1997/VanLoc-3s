@@ -51,4 +51,7 @@
     <data name="btn_Edit">
         <value>Sửa</value>
     </data>
+    <data name="btn_AreYouSureYouWantToDeleteIt?">
+        <value>Bạn chắc chắn muốn xóa ?</value>
+    </data>
 </root>

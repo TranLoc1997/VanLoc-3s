@@ -25,12 +25,20 @@ namespace TaskUser.Controllers
             
         }
         // GET
+        /// <summary>
+        /// show index tock
+        /// </summary>
+        /// <returns>index of stock</returns>
         public async Task<IActionResult> Index()
         {
             var listStock = await _stockService.GetStockListAsync();
             return View(listStock);
 
         }
+        /// <summary>
+        /// get create stock
+        /// </summary>
+        /// <returns>view create of stock</returns>
         [HttpGet]
         public IActionResult Create()
         {
@@ -38,6 +46,11 @@ namespace TaskUser.Controllers
             ViewBag.ProductID = new SelectList(_productSerive.GetProduct(), "Id", "ProductName");
             return View();
         }
+        /// <summary>
+        /// post create of stock
+        /// </summary>
+        /// <param name="stock"></param>
+        /// <returns>view index of stock else view</returns>
         [HttpPost]
         public async Task<IActionResult> Create(StockViewModels stock)
         {
@@ -58,12 +71,17 @@ namespace TaskUser.Controllers
                 "Id", "StoreName",stock.ProductId);
             return View();
         }
-
+        /// <summary>
+        /// get edit stock
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="storeId"></param>
+        /// <returns>return edit of stock</returns>
 
         [HttpGet]
-        public  async Task<IActionResult> Edit(int  productId,int?storeId)
+        public  async Task<IActionResult> Edit(int?  productId,int?storeId)
         {
-            if (productId==0 && storeId==0)
+            if (productId==null && storeId==null)
             {
                 return BadRequest();
             }
@@ -73,6 +91,13 @@ namespace TaskUser.Controllers
            
             return View(getStock);
         }
+        /// <summary>
+        /// get edit stock
+        /// </summary>
+        /// <param name="productId"></param>
+        /// <param name="storeId"></param>
+        /// <param name="editStock"></param>
+        /// <returns>view index of edir</returns>
         [HttpPost]
         public async Task<IActionResult> Edit(int productId,int storeId,StockViewModels editStock)
         {
@@ -97,7 +122,12 @@ namespace TaskUser.Controllers
             ViewBag.ProductID = new SelectList(_productSerive.GetProduct(), "Id", "ProductName");
             return View();
         }
-
+        /// <summary>
+/// delete of sstock
+/// </summary>
+/// <param name="productId"></param>
+/// <param name="storeId"></param>
+/// <returns>index</returns>
         [HttpGet]
         public IActionResult Delete(int? productId,int? storeId)
         {

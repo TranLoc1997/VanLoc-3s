@@ -50,5 +50,8 @@
         <data name="btn_Edit">
             <value>Edit</value>
         </data>
+        <data name="btn_AreYouSureYouWantToDeleteIt?">
+            <value>Are You Sure You Want To Delete It?</value>
+        </data>
     </data>
 </root>

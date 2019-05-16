@@ -19,19 +19,30 @@ namespace TaskUser.Controllers
             
         }
         // GET
+        /// <summary>
+        /// show category    
+        /// </summary>
+        /// <returns>index category</returns>
         public async Task<IActionResult> Index()
         {
             var listCateogry = await _category.GetCategoryListAsync();
             return View(listCateogry);
 
         }
-        
+        /// <summary>
+        /// get create category    
+        /// </summary>
+        /// <returns>view create category </returns>
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
-        
+        /// <summary>
+        /// post create category
+        /// </summary>
+        /// <param name="category"></param>
+        /// <returns>view create category</returns>
         [HttpPost]
         public async Task<IActionResult> Create(CategoryViewsModels category)
         {
@@ -48,7 +59,11 @@ namespace TaskUser.Controllers
             TempData["AddFailure"] = "err_Failure";
             return View(category);
         }
-
+        /// <summary>
+        /// get edit category
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>view edit category</returns>
         [HttpGet]
         public async  Task<IActionResult> Edit(int? id)
         {
@@ -60,7 +75,12 @@ namespace TaskUser.Controllers
            
             return View(getCategory);
         }
-
+        /// <summary>
+/// post edit category
+/// </summary>
+/// <param name="id"></param>
+/// <param name="editCategory"></param>
+/// <returns>return index category</returns>
         [HttpPost]
         public async Task<IActionResult> Edit(int id ,CategoryViewsModels editCategory)
         {
@@ -77,7 +97,11 @@ namespace TaskUser.Controllers
             TempData["EditFailure"] = "err_Failure";
             return View();
         }
-
+        /// <summary>
+        /// function Delete category 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>index category</returns>
         [HttpGet]
         public IActionResult Delete(int? id)
         {

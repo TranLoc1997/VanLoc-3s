@@ -16,7 +16,10 @@ namespace TaskUser.Controllers
             _storeService = storeService;
             
         }
-        
+        /// <summary>
+        /// show index of store
+        /// </summary>
+        /// <returns>return view</returns>
         public async Task<IActionResult> Index()
         {
             var listStore = await _storeService.GetStoreListAsync();
@@ -31,13 +34,20 @@ namespace TaskUser.Controllers
             return RedirectToAction("Index");
 
         }
-
+        /// <summary>
+/// get create of store
+/// </summary>
+/// <returns>view create of store</returns>
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
-
+        /// <summary>
+/// post create of store
+/// </summary>
+/// <param name="store"></param>
+/// <returns>index of store else view</returns>
         [HttpPost]
         public async Task<IActionResult> Create(StoreViewModels store)
         {
@@ -53,6 +63,11 @@ namespace TaskUser.Controllers
             TempData["AddFailure"] = "err_Failure";
             return View();
         }
+        /// <summary>
+        /// get edit of store
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>view edit of stroe</returns>
         [HttpGet]
         public async Task<IActionResult> Edit(int?id)
         {
@@ -64,6 +79,13 @@ namespace TaskUser.Controllers
            
           return View(getstore);
         }
+        /// <summary>
+        /// post edit of store
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="editStore"></param>
+        /// <returns>index of store else view</returns>
+
         [HttpPost]
         public async Task<IActionResult> Edit(int id ,StoreViewModels editStore)
         {
@@ -83,7 +105,11 @@ namespace TaskUser.Controllers
             TempData["EditFailure"] = "err_Failure";
             return View();
         }
-
+        /// <summary>
+        /// delete of store
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>index</returns>
         [HttpGet]
         public IActionResult Delete(int? id)
         {

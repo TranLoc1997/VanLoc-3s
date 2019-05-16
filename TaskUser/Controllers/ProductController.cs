@@ -25,12 +25,19 @@ namespace TaskUser.Controllers
 
         }
         // GET
+        /// <summary>
+        /// show index product    
+        /// </summary>
+        /// <returns>view index of product</returns>
         public async Task<IActionResult> Index()
         {
             var listStore = await _productSerive.GetProductListAsync();
             return View(listStore);
-
         }
+        /// <summary>
+        /// get create of product
+        /// </summary>
+        /// <returns>view create of product</returns>
         [HttpGet]
         public IActionResult Create()
         {
@@ -38,6 +45,11 @@ namespace TaskUser.Controllers
             ViewBag.CategoryId = new SelectList(_categoryService.GetCategory(), "Id", "CategoryName");  
             return View();
         }
+        /// <summary>
+        /// post create of product
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns>return view index of product</returns>
         [HttpPost]
         public async Task<IActionResult> Create(ProductViewsModels product)
         {
@@ -57,7 +69,11 @@ namespace TaskUser.Controllers
                 "Id", "BrandName",product.BrandId);
             return View();
         }
-
+        /// <summary>
+/// get edit product
+/// </summary>
+/// <param name="id"></param>
+/// <returns>view edit of product</returns>
         [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -71,6 +87,12 @@ namespace TaskUser.Controllers
                    
             return View(getProduct);
         }
+        /// <summary>
+        /// post edit product
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="editProduct"></param>
+        /// <returns>view index of product</returns>
         [HttpPost]
         public async Task<IActionResult> Edit(int id ,ProductViewsModels editProduct)
         {
@@ -106,7 +128,11 @@ namespace TaskUser.Controllers
                 "Id", "BrandName",editProduct.BrandId);
             return View();
         }
-
+        /// <summary>
+        /// get delete of product
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>delete of product</returns>
         [HttpGet]
         public IActionResult Delete(int? id)
         {
