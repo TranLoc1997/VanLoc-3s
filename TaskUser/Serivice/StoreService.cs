@@ -35,7 +35,7 @@ namespace TaskUser.Serivice
         }
 //        
 //
-       
+       // get show store
         public async Task<List<StoreViewModels>> GetStoreListAsync()//
         {
             var list = await _context.Stores.ToListAsync();
@@ -47,7 +47,7 @@ namespace TaskUser.Serivice
         {
             return _context.Stores;
         } 
-        
+        // get create store
         public async Task<StoreViewModels> Create(StoreViewModels addStore)
         {            
             var store = new Store()
@@ -65,14 +65,15 @@ namespace TaskUser.Serivice
             await _context.Stores.AddAsync(store);
             await _context.SaveChangesAsync();
             return addStore;
-        }          
+        }  
+        //get edit id store
         public async Task<StoreViewModels> GetIdStore(int? id)
         {
             var findStore=await _context.Stores.FindAsync(id);
             var storeDtos = _mapper.Map<StoreViewModels>(findStore);
             return storeDtos;
         }
-
+        // get edit store
         public async Task<StoreViewModels> EditStore(int?id, StoreViewModels editStore)
         {
             try
@@ -98,13 +99,13 @@ namespace TaskUser.Serivice
             
 
         }
-        
+        // ckeck email
         public bool IsExistedEmailStore(int id,string email)
         {
             return _context.Stores.Any(x => x.Email == email && x.Id != id);
         }
         
-        
+        //delete store
         public void Delete(int id)
         {
             var store = _context.Stores.Find(id);

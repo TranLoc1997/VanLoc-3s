@@ -39,7 +39,12 @@ namespace TaskUser.Serivice
             _context = context;
             _mapper = mapper;
         }
-       
+       /// <summary>
+       /// ckeck login
+       /// </summary>
+       /// <param name="email"></param>
+       /// <param name="password"></param>
+       /// <returns>true of flase</returns>
         public bool Login(string email, string password)
         {
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
@@ -57,7 +62,7 @@ namespace TaskUser.Serivice
 
             return true;
         }
-
+//get list show user
         public async Task<List<UserViewsModels>> GetUserListAsync()//
         {
             var list = await _context.Users.ToListAsync();
@@ -70,7 +75,7 @@ namespace TaskUser.Serivice
         {
             return _context.Users;
         } 
-
+//create user
         public async Task<UserViewsModels> Create(UserViewsModels user)
         {
                
@@ -90,7 +95,7 @@ namespace TaskUser.Serivice
             return user;
         }
         
-        
+  //get edit id      
         public async Task<UserViewsModels> GetId(int? id)
         {
             var findUser=await _context.Users.FindAsync(id);
@@ -101,7 +106,7 @@ namespace TaskUser.Serivice
           
         }
 
-        
+     //post edit id   
 
         public async Task<UserViewsModels> EditAsync(UserViewsModels userParam)
         {
@@ -127,7 +132,7 @@ namespace TaskUser.Serivice
             
 
         }
-
+        //get password
         public async Task<EditViewPassword> GetPassword(int? id)
         {
             var findPassWord= await _context.Users.FindAsync(id);
@@ -135,15 +140,7 @@ namespace TaskUser.Serivice
             return usereditDtos;
         }
         
-//        public async Task<EditViewPassword> UserPassword(EditViewPassword passUser)
-//        {
-//            var user = await _context.Users.FindAsync(passUser);
-//            user.PassWord = SecurePasswordHasher.Hash(passUser.NewPassword);
-//            _context.Users.Update(user);
-//            await _context.SaveChangesAsync();
-//            return passUser;
-//        }
-        
+        //post user Password
         public async Task<bool> UserPassword(EditViewPassword passUser)
         {
             try
@@ -162,7 +159,7 @@ namespace TaskUser.Serivice
             
         }
        
-        
+        // delete user
         public void Delete(int id)
         {
             var user = _context.Users.Find(id);
@@ -171,7 +168,7 @@ namespace TaskUser.Serivice
             _context.Users.Remove(user);
             _context.SaveChanges();
         }
-
+        //ckeck name
         public User GetName(string email)
         {
             var user = _context.Users.FirstOrDefault(x =>
@@ -179,7 +176,7 @@ namespace TaskUser.Serivice
 
             return user;
         }
-        
+        //ckeck trung email
         public bool IsExistedEmailUser(int id,string email)
         {
             return _context.Users.Any(x => x.Email == email && x.Id != id);

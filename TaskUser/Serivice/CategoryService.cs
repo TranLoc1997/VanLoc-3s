@@ -31,13 +31,14 @@ namespace TaskUser.Serivice
             _context = context;
             _mapper = mapper;
         }
-       
+       //show category list
         public async Task<List<CategoryViewsModels>> GetCategoryListAsync()//
         {
             var list = await _context.Categories.ToListAsync();
             var listCategory = _mapper.Map<List<CategoryViewsModels>>(list);
             return listCategory;
         }
+        // create category
         public async Task<CategoryViewsModels> Create(CategoryViewsModels addCategory)
         {            
             var category = new Category()
@@ -51,17 +52,19 @@ namespace TaskUser.Serivice
             await _context.SaveChangesAsync();
             return addCategory;
         }
-
+    
         public IEnumerable<Category> GetCategory()
         {
             return _context.Categories;
         }
+        //get edit category
         public async Task<CategoryViewsModels> GetIdCategory(int? id)
         {
             var findCategory=await _context.Categories.FindAsync(id);
             var categoryDtos = _mapper.Map<CategoryViewsModels>(findCategory);
             return categoryDtos;
         }
+        //post edit category
         public async Task<CategoryViewsModels> EditCategory(int?id, CategoryViewsModels editCategory)
         {
             try
@@ -87,6 +90,7 @@ namespace TaskUser.Serivice
         {
             return _context.Categories.Any(x => x.CategoryName == name && x.Id != id);
         }
+        // delete category
         public void Delete(int id)
         {
             var category = _context.Categories.Find(id);

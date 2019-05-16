@@ -5,21 +5,21 @@ namespace TaskUser.Models
 {
     public class User 
     {
-        public User()
-        {
-            
-        }
-        public User(int id, string name, string email,string phone, string password, string city, int storeid, bool isactiver)
-        {
-            Id = id;
-            Name = name;
-            Email = email;
-            Phone = phone;
-            PassWord = password;
-            StoreId = storeid;
-            IsActiver = isactiver;
-            
-        }
+//        public User()
+//        {
+//            
+//        }
+//        public User(int id, string name, string email,string phone, string password, string city, int storeid, bool isactiver)
+//        {
+//            Id = id;
+//            Name = name;
+//            Email = email;
+//            Phone = phone;
+//            PassWord = password;
+//            StoreId = storeid;
+//            IsActiver = isactiver;
+//            
+//        }
         public int Id { get; set; }
         public int StoreId { get; set; }
         public string Name { get; set; }

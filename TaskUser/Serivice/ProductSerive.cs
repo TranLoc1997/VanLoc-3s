@@ -34,7 +34,7 @@ namespace TaskUser.Serivce
             _context = context;
             _mapper = mapper;
         }
-       
+        //show list product
         public async Task<List<ProductViewsModels>> GetProductListAsync()//
         {
             var list = await _context.Products.ToListAsync();
@@ -46,7 +46,7 @@ namespace TaskUser.Serivce
         {
             return _context.Products;
         }
-        
+        //create product 
         public async Task<ProductViewsModels> Create(ProductViewsModels addProduct)
         {
             var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/img", addProduct.PictureFile.FileName);
@@ -70,13 +70,14 @@ namespace TaskUser.Serivce
             
             
         }
+        //edit get product
         public async Task<ProductViewsModels> GetIdProduct(int? id)
         {
             var findProduct= await _context.Products.FindAsync(id);
             var productDtos = _mapper.Map<ProductViewsModels>(findProduct);;
             return productDtos;
         }
-
+        // edit post product
         public async Task<ProductViewsModels> EditProduct(int? id, ProductViewsModels editProduct)
         {
             try
@@ -108,6 +109,7 @@ namespace TaskUser.Serivce
             
 
         }
+        //delete product
         public void Delete(int id)
         {
             var product = _context.Products.Find(id);
@@ -118,6 +120,6 @@ namespace TaskUser.Serivce
         }
         
 
-//       
+      
     }
 }

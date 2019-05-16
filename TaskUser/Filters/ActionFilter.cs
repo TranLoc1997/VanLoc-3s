@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace TaskUser.Filters
 {
+    /// <summary>
+    /// Quyen truy cap vao cac trang
+    /// </summary>
     public class ActionFilter: IActionFilter
     {
         private readonly IHttpContextAccessor _accessor;

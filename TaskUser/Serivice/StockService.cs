@@ -38,7 +38,7 @@ namespace TaskUser.Serivce
             _context = context;
             _mapper = mapper;
         }
-       
+       //get show list stock
         public async Task<List<StockViewModels>> GetStockListAsync()
         {
             var list = await _context.Stocks.ToListAsync();
@@ -50,6 +50,7 @@ namespace TaskUser.Serivce
         {
             return _context.Stocks;
         } 
+        //get create stock
         public async Task<StockViewModels> Create(StockViewModels addStock)
         {
             var ckeck =await _context.Stocks.FindAsync(addStock.ProductId, addStock.StoreId);
@@ -80,6 +81,7 @@ namespace TaskUser.Serivce
             }
 
         }
+        //get id edit stock
         public async Task<StockViewModels> GetIdStock(int? productId , int? storeId)
         {
             var findStock = await _context.Stocks.FindAsync(productId,storeId);
@@ -87,7 +89,7 @@ namespace TaskUser.Serivce
             var stockDtos = _mapper.Map<StockViewModels>(findStock);
             return stockDtos;
         }
-
+        // post edit stock
         public async Task<StockViewModels> EditStock(int? productId , int? storeId, StockViewModels editStock)
         {
             try
@@ -106,6 +108,7 @@ namespace TaskUser.Serivce
             }
             
         }
+        //delete stock
         public void Delete(int? productId , int? storeId)
         {
             var stock = _context.Stocks.FirstOrDefault(x=>x.ProductId == productId && x.StoreId == storeId);
