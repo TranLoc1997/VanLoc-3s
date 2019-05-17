@@ -47,11 +47,16 @@
         <value>
             Stock
         </value>
-        <data name="btn_Edit">
-            <value>Edit</value>
-        </data>
-        <data name="btn_AreYouSureYouWantToDeleteIt?">
-            <value>Are You Sure You Want To Delete It?</value>
-        </data>
+        
+        
+    </data>
+    <data name="btn_Edit">
+        <value>Edit</value>
+    </data>
+    <data name="btn_AreYouSureYouWantToDeleteIt?">
+        <value>Are You Sure You Want To Delete It?</value>
+    </data>
+    <data name="btn_GoBackToTheMainPage">
+        <value>Go Back To The Main Page</value>
     </data>
 </root>

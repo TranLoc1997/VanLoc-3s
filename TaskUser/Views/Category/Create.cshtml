@@ -1,8 +1,6 @@
 ﻿@model CategoryViewsModels
 @using TaskUser.ViewsModels.CategoryViewsModels
-@using TaskUser.Resources
 
-@inject SharedViewLocalizer<CategoryResource> Localizer
 
 
 
@@ -43,7 +41,7 @@
         </div>
     </form>
     <div class="form-group col-xs-12">
-        <a class="nav-link text-dark" asp-area="" asp-controller="Store" asp-action="Back">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Category" asp-action="Index">
             <img src="~/img/iconback.png" alt="Smiley face" height="42" width="42">
             @Localizer.GetLocalizedString("btn_GoBackToTheMainPage")
             

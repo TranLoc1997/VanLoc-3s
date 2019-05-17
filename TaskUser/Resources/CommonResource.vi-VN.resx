@@ -70,4 +70,7 @@
     <data name="btn_AreYouSureYouWantToDeleteIt?">
         <value>Bạn chắc chắn muốn xóa ?</value>
     </data>
+    <data name="btn_GoBackToTheMainPage">
+        <value>Quay lại trang chính</value>
+    </data>
 </root>

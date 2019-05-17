@@ -388,6 +388,7 @@
           <e p="logo.svg" t="Include" />
         </e>
         <e p="img" t="Include">
+          <e p="2656-256.png" t="Include" />
           <e p="Brand.png" t="Include" />
           <e p="Edit.png" t="Include" />
           <e p="Language.png" t="Include" />
