@@ -19,24 +19,22 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="lbl_BrandManagement">
-        <value>Quản lý nhãn hiệu</value>
+        <value>Quản Lý Nhãn Hiệu</value>
     </data>
     <data name="lbl_BrandName">
         <value>Tên nhãn hiệu</value>
     </data>
     <data name="lbl_AddBrand">
-        <value>Thêm nhãn hiệu</value>
+        <value>Thêm Nhãn Hiệu</value>
     </data>
     <data name="lbl_EditBrand">
-        <value>Sửa nhãn hiệu</value>
+        <value>Sửa Nhãn Hiệu</value>
     </data>
     <data name="lbl_manipulation">
         <value>Thao tác</value>
     </data>
-    <data name="btn_Edit">
-        <value>Sửa</value>
-    </data> 
-    <data name="btn_AreYouSureYouWantToDeleteIt?">
+    
+        <data name="btn_AreYouSureYouWantToDeleteIt?">
         <value>Bạn chắc chắn muốn xóa ?</value>
     </data>
     

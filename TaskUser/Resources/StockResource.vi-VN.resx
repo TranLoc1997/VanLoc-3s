@@ -20,16 +20,16 @@
     </resheader>
     <!-- stock -->
     <data name="lbl_StockManagement">
-        <value>Quản lý kho hàng</value>
+        <value>Quản Lý Kho Hàng</value>
     </data>
     <data name="lbl_AddStock">
-        <value>Thêm kho hàng</value>
+        <value>Thêm Kho Hàng</value>
     </data>
     <data name="lbl_EditStock">
-        <value>Sửa kho hàng</value>
+        <value>Sửa Kho Hàng</value>
     </data>
     <data name="btn_AddNewStock">
-        <value>Thêm Mới kho hàng</value>
+        <value>Thêm Mới Kho Hàng</value>
     </data>
 
     <data name="lbl_StoreId">

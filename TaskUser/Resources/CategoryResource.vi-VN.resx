@@ -19,16 +19,16 @@
         <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
     </resheader>
     <data name="lbl_CategoryManagement">
-        <value>Quản lý danh mục</value>
+        <value>Quản Lý Danh Mục</value>
     </data>
     <data name="lbl_CategoryName">
         <value>Tên thể loai</value>
     </data>
     <data name="lbl_AddCategory">
-        <value>Thêm danh mục</value>
+        <value>Thêm Danh Mục</value>
     </data>
     <data name="lbl_EditCategory">
-        <value>Sửa danh mục</value>
+        <value>Sửa Danh Mục</value>
     </data>
     <data name="btn_Edit">
         <value>Sửa</value>
