@@ -2,8 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TaskUser.Filters;
 using TaskUser.Resources;
-using TaskUser.Serivce;
-using TaskUser.Serivice;
+using TaskUser.Service;
 using TaskUser.ViewsModels.BrandViewsModels;
 
 namespace TaskUser.Controllers
@@ -11,13 +10,14 @@ namespace TaskUser.Controllers
     [ServiceFilter(typeof(ActionFilter))]
     public class BrandController : Controller
     {
-      
         private readonly IBrandService _brandService;
+        private readonly SharedViewLocalizer<CommonResource> _localizer;
         private readonly SharedViewLocalizer<BrandResource> _brandLocalizer;
-        public BrandController(IBrandService  brandService,SharedViewLocalizer<BrandResource> brandLocalizer)
+        public BrandController(IBrandService  brandService,SharedViewLocalizer<CommonResource> localizer,SharedViewLocalizer<BrandResource> brandLocalizer)
         {
             _brandService = brandService;
             _brandLocalizer = brandLocalizer;
+            _localizer = localizer;
 
         }
         // GET
@@ -54,11 +54,11 @@ namespace TaskUser.Controllers
                 var addBrand = await _brandService.Create(brand);
                 if (addBrand != null)
                 {
-                    TempData["AddSuccessfuly"] = _brandLocalizer.GetLocalizedString("msg_AddSuccessfuly").ToString();
+                    TempData["AddSuccessfuly"] = _localizer.GetLocalizedString("msg_AddSuccessfuly").ToString();
                     return RedirectToAction("Index", addBrand);
                 }
             }
-            ViewData["AddFailure"] = "err_Failure";
+            ViewData["AddFailure"] = _brandLocalizer.GetLocalizedString("err_AddFailure");
             return View();
         }
         /// <summary>
@@ -93,12 +93,12 @@ namespace TaskUser.Controllers
                 {
                     
                     await _brandService.EditBrand(id,editBrand);
-                    TempData["EditSuccessfuly"] = _brandLocalizer.GetLocalizedString("msg_Successfuly").ToString();
+                    TempData["EditSuccessfuly"] = _localizer.GetLocalizedString("msg_EditSuccessfuly").ToString();
                     return RedirectToAction("Index");
                     
                 }              
             }
-            ViewData["EditFailure"] = "err_Failure";
+            ViewData["EditFailure"] = _brandLocalizer.GetLocalizedString("err_EditFailure");
             return View();
         }
         /// <summary>
@@ -112,15 +112,12 @@ namespace TaskUser.Controllers
             if (id!=null)
             {
                 _brandService.Delete(id.Value);
-                TempData["DeleteSuccessfuly"] = "msg_Successfuly";
+                TempData["DeleteSuccessfuly"] = _localizer.GetLocalizedString("msg_DeleteSuccessfuly").ToString();
                 return RedirectToAction("Index");
             }
-            ViewData["DeleteFailure"] = "err_Failure";
+            TempData["DeleteFailure"] = _localizer.GetLocalizedString("err_Failure");
             return RedirectToAction("Index");
             
         }
-
-        
-
     }
 }

@@ -6,12 +6,16 @@
 
     Layout = "_Layout";
 }
-@* @if (ViewBag.ErrorAdd != null) *@
-@* { *@
-@*     @Localizer["Add Failure"] *@
-@*          *@
-@* } *@
-<form method="post" asp-controller="Stock" enctype="multipart/form-data" asp-action="Create">
+<div class="container">
+    @if (ViewData["AddFailure"] != null)
+    {
+        <div class="alert alert-info"style="width: 200px">
+            <strong>@ViewData["AddFailure"]</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+        </div>
+ 
+    }
+    <form method="post" asp-controller="Stock" enctype="multipart/form-data" asp-action="Create">
         <legend>@StockLocalizer.GetLocalizedString("lbl_AddStock")</legend>
         @*<input type="hidden" class="form-control" asp-for="Id"  placeholder="Your name" required>*@
         <div class="form-group col-xs-6">
@@ -34,7 +38,7 @@
         </div>
         <div class="form-group col-xs-12">
             <button type="submit" class="btn btn-primary btn-lg btn-block">
-               @StockLocalizer.GetLocalizedString("btn_AddNewStock")
+                @StockLocalizer.GetLocalizedString("btn_AddNewStock")
             </button>
         </div>
     </form>
@@ -44,5 +48,6 @@
     @*         @Localizer["Go back to the main page"] *@
     @*     </a> *@
     @* </div> *@
+</div>
               
 

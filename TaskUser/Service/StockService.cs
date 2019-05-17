@@ -6,10 +6,9 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using TaskUser.Models;
 using TaskUser.Models.Production;
-using TaskUser.ViewsModels.CategorieViewsModels;
 using TaskUser.ViewsModels.StockViewsModels;
 
-namespace TaskUser.Serivce
+namespace TaskUser.Service
 {
    
     public interface IStockService

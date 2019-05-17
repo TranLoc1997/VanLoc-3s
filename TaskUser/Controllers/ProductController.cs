@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TaskUser.Filters;
-using TaskUser.Serivce;
-using TaskUser.Serivice;
+using TaskUser.Resources;
+using TaskUser.Service;
 using TaskUser.ViewsModels.ProductViewsModels;
 
 namespace TaskUser.Controllers
@@ -11,17 +11,23 @@ namespace TaskUser.Controllers
     [ServiceFilter(typeof(ActionFilter))]
     public class ProductController : Controller
     {
-        private readonly IProductSerive _productSerive;
+        private readonly IProductService _productService;
         private readonly IBrandService _brandService;
         private readonly ICategoryService _categoryService;
-        public ProductController(IProductSerive productService,
+        private readonly SharedViewLocalizer<CommonResource> _localizer;
+        private readonly SharedViewLocalizer<ProductResource> _productLocalizer;
+        public ProductController(IProductService productService,
             IBrandService brandService,
-            ICategoryService categoryService)
+            ICategoryService categoryService,
+            SharedViewLocalizer<CommonResource> localizer,
+            SharedViewLocalizer<ProductResource> productLocalizer)
         {
             
-            _productSerive = productService;
+            _productService = productService;
             _brandService = brandService;
             _categoryService = categoryService;
+            _localizer = localizer;
+            _productLocalizer = productLocalizer;
 
         }
         // GET
@@ -31,7 +37,7 @@ namespace TaskUser.Controllers
         /// <returns>view index of product</returns>
         public async Task<IActionResult> Index()
         {
-            var listStore = await _productSerive.GetProductListAsync();
+            var listStore = await _productService.GetProductListAsync();
             return View(listStore);
         }
         /// <summary>
@@ -55,14 +61,15 @@ namespace TaskUser.Controllers
         {
             if (ModelState.IsValid)
             {
-                var addProduct = await _productSerive.Create(product);
+                var addProduct = await _productService.Create(product);
                 if (addProduct != null)
                 { 
-                    TempData["AddSuccessfuly"] = "msg_Successfuly";
+                    TempData["AddSuccessfuly"] = _localizer.GetLocalizedString("msg_AddSuccessfuly").ToString();
                     return RedirectToAction("Index");
                 }
             }
-            TempData["AddFailure"] = "err_Failure";
+
+            ViewData["AddFailure"] = _productLocalizer.GetLocalizedString("err_AddFailure");
             ViewBag.CategoryId = new SelectList(_categoryService.GetCategory(), 
                 "Id", "CategoryName",product.CategoryId);  
             ViewBag.BrandId = new SelectList(_brandService.Getbrand(), 
@@ -83,7 +90,7 @@ namespace TaskUser.Controllers
             }
             ViewBag.BrandId = new SelectList(_brandService.Getbrand(), "Id", "BrandName");  
             ViewBag.CategoryId = new SelectList(_categoryService.GetCategory(), "Id", "CategoryName");  
-            var getProduct = await _productSerive.GetIdProduct(id.Value);
+            var getProduct = await _productService.GetIdProduct(id.Value);
                    
             return View(getProduct);
         }
@@ -99,20 +106,15 @@ namespace TaskUser.Controllers
            
             if (ModelState.IsValid)
             {
-//                if (editProduct != null)
-//                {
-//                    return BadRequest();
-//
-//                }
-               
+              
                 if (id == editProduct.Id)
                 {
                         
-                    await _productSerive.EditProduct(id,editProduct);
-                    TempData["EditSuccessfuly"] = "msg_Successfuly";
+                    await _productService.EditProduct(id,editProduct);
+                    TempData["EditSuccessfuly"] = _localizer.GetLocalizedString("msg_EditSuccessfuly").ToString();
                     return RedirectToAction("Index");
                 }
-                TempData["EditFailure"] = "err_Failure";
+                ViewData["EditFailure"] = _productLocalizer.GetLocalizedString("err_EditFailure");
                 ViewBag.CategoryId = new SelectList(_categoryService.GetCategory(), 
                     "Id", "CategoryName",editProduct.CategoryId);  
                 ViewBag.BrandId = new SelectList(_brandService.Getbrand(), 
@@ -121,7 +123,7 @@ namespace TaskUser.Controllers
                 return BadRequest();
                 
             }
-            TempData["EditFailure"] = "err_Failure";
+            ViewData["EditFailure"] = _productLocalizer.GetLocalizedString("err_EditFailure");
             ViewBag.CategoryId = new SelectList(_categoryService.GetCategory(), 
                 "Id", "CategoryName",editProduct.CategoryId);  
             ViewBag.BrandId = new SelectList(_brandService.Getbrand(), 
@@ -138,11 +140,11 @@ namespace TaskUser.Controllers
         {
             if (id!=null)
             {
-                _productSerive.Delete(id.Value);
-                TempData["DeleteSuccessfuly"] = "msg_Successfuly";
+                _productService.Delete(id.Value);
+                TempData["DeleteSuccessfuly"] = _localizer.GetLocalizedString("msg_DeleteSuccessfuly").ToString();
                 return RedirectToAction("Index");
             }
-            TempData["DeleteFailure"] = "err_Failure";
+            ViewData["DeleteFailure"] = "err_Failure";
             return RedirectToAction("Index");
             
         }

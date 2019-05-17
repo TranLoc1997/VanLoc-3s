@@ -1,9 +1,8 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using TaskUser.Filters;
-using TaskUser.Serivce;
-using TaskUser.Serivice;
-using TaskUser.ViewsModels.CategorieViewsModels;
+using TaskUser.Resources;
+using TaskUser.Service;
 using TaskUser.ViewsModels.CategoryViewsModels;
 
 namespace TaskUser.Controllers
@@ -13,10 +12,14 @@ namespace TaskUser.Controllers
     {
         // GET
         private readonly ICategoryService _category;
-        public CategoryController(ICategoryService category)
+        private readonly SharedViewLocalizer<CommonResource> _localizer;
+        private readonly SharedViewLocalizer<CategoryResource> _categoryLocalizer;
+        public CategoryController(ICategoryService category ,SharedViewLocalizer<CommonResource> localizer,SharedViewLocalizer<CategoryResource> categoryLocalizer)
         {
             _category = category;
-            
+            _localizer = localizer;
+            _categoryLocalizer = categoryLocalizer;
+
         }
         // GET
         /// <summary>
@@ -52,11 +55,11 @@ namespace TaskUser.Controllers
                 var addCategory = await _category.Create(category);
                 if (addCategory != null)
                 {
-                    TempData["AddSuccessfuly"] = "msg_Successfuly";
+                    TempData["AddSuccessfuly"] = _localizer.GetLocalizedString("msg_AddSuccessfuly");
                     return RedirectToAction("Index");
                 }
             }
-            TempData["AddFailure"] = "err_Failure";
+            ViewData["AddFailure"] = _categoryLocalizer.GetLocalizedString("err_AddFailure");
             return View(category);
         }
         /// <summary>
@@ -90,11 +93,11 @@ namespace TaskUser.Controllers
                 { 
                     
                     await _category.EditCategory(id,editCategory);
-                    TempData["EditSuccessfuly"] = "msg_Successfuly";
+                    TempData["EditSuccessfuly"] = _localizer.GetLocalizedString("msg_EditSuccessfuly");
                     return RedirectToAction("Index");
                     
                 }       
-            TempData["EditFailure"] = "err_Failure";
+            ViewData["EditFailure"] = _categoryLocalizer.GetLocalizedString("err_EditFailure");
             return View();
         }
         /// <summary>
@@ -108,10 +111,10 @@ namespace TaskUser.Controllers
             if (id!=null)
             {
                 _category.Delete(id.Value);
-                TempData["DeleteSuccessfuly"] = "msg_Successfuly";
+                TempData["DeleteSuccessfuly"] = _localizer.GetLocalizedString("msg_DeleteSuccessfuly");
                 return RedirectToAction("Index");
             }
-            TempData["DeleteFailure"] = "err_Failure";
+            ViewData["DeleteFailure"] = "err_Failure";
             return RedirectToAction("Index");
             
         }

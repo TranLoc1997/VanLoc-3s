@@ -8,7 +8,7 @@ using TaskUser.Models;
 using TaskUser.Models.Sales;
 using TaskUser.ViewsModels.StoreViewsModels;
 
-namespace TaskUser.Serivice
+namespace TaskUser.Service
 {
     public interface IStoreService
     {

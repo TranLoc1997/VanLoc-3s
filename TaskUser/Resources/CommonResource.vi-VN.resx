@@ -48,6 +48,22 @@
             Kho Hàng
         </value>
     </data>
+    <data name="msg_AddSuccessfuly">
+        <value>
+            Thêm Thành Công 
+        </value>
+    </data>
+    <data name="msg_EditSuccessfuly">
+        <value>
+            Sửa Thành Công
+        </value>
+    </data>
+    <data name="msg_DeleteSuccessfuly">
+        <value>
+            Xóa Thành Công
+        </value>
+    </data>
+    
     <data name="btn_Edit">
         <value>Sửa</value>
     </data>

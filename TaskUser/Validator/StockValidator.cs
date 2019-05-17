@@ -1,7 +1,7 @@
 ﻿using FluentValidation;
 using Microsoft.Extensions.Localization;
 using TaskUser.Resources;
-using TaskUser.Serivce;
+using TaskUser.Service;
 using TaskUser.ViewsModels.StockViewsModels;
 
 namespace TaskUser.Validator

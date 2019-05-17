@@ -116,10 +116,10 @@
         <e p="UsersValidatorResource.vi-VN.Designer.cs" t="Include" />
         <e p="UsersValidatorResource.vi-VN.resx" t="Include" />
       </e>
-      <e p="Serivice" t="Include">
+      <e p="Service" t="Include">
         <e p="BrandService.cs" t="Include" />
         <e p="CategoryService.cs" t="Include" />
-        <e p="ProductSerive.cs" t="Include" />
+        <e p="ProductService.cs" t="Include" />
         <e p="StockService.cs" t="Include" />
         <e p="StoreService.cs" t="Include" />
         <e p="UserService.cs" t="Include" />
@@ -212,6 +212,7 @@
           <e p="StoreViewModels.cs" t="Include" />
         </e>
         <e p="UserViewsModels" t="Include">
+          <e p="EditUserViewsModels.cs" t="Include" />
           <e p="EditViewPassword.cs" t="Include" />
           <e p="LoginViewModel.cs" t="Include" />
           <e p="UserProfile.cs" t="Include" />

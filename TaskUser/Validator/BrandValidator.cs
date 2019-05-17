@@ -1,7 +1,6 @@
 using FluentValidation;
 using TaskUser.Resources;
-using TaskUser.Serivce;
-using TaskUser.Serivice;
+using TaskUser.Service;
 using TaskUser.ViewsModels.BrandViewsModels;
 
 namespace TaskUser.Validator

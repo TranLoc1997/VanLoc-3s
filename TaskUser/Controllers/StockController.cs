@@ -2,8 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using TaskUser.Filters;
-using TaskUser.Serivce;
-using TaskUser.Serivice;
+using TaskUser.Resources;
+using TaskUser.Service;
 using TaskUser.ViewsModels.StockViewsModels;
 
 namespace TaskUser.Controllers
@@ -14,15 +14,22 @@ namespace TaskUser.Controllers
         // GET
        private readonly IStockService _stockService;
         private readonly IStoreService _storeService;
-        private readonly IProductSerive _productSerive;
+        private readonly IProductService _productService;
+        private readonly SharedViewLocalizer<CommonResource> _localizer;
+        private readonly SharedViewLocalizer<StockResource> _stockLocalizer;
         public StockController(IStockService stockService,
             IStoreService storeService,
-            IProductSerive productSerive)
+            IProductService productService,
+            SharedViewLocalizer<CommonResource> localizer,
+            SharedViewLocalizer<StockResource> stockLocalizer
+           )
         {
             _stockService = stockService;
             _storeService = storeService;
-            _productSerive = productSerive;
-            
+            _productService = productService;
+            _localizer = localizer;
+            _stockLocalizer = stockLocalizer;
+
         }
         // GET
         /// <summary>
@@ -43,7 +50,7 @@ namespace TaskUser.Controllers
         public IActionResult Create()
         {
             ViewBag.StoreId = new SelectList(_storeService.GetStore(), "Id", "StoreName");
-            ViewBag.ProductID = new SelectList(_productSerive.GetProduct(), "Id", "ProductName");
+            ViewBag.ProductID = new SelectList(_productService.GetProduct(), "Id", "ProductName");
             return View();
         }
         /// <summary>
@@ -60,14 +67,14 @@ namespace TaskUser.Controllers
                 var addStock = await _stockService.Create(stock);
                 if (addStock != null)
                 {
-                    TempData["AddSuccessfuly"] = "msg_Successfuly";
+                    TempData["AddSuccessfuly"] = _localizer.GetLocalizedString("msg_AddSuccessfuly").ToString();
                     return RedirectToAction("Index", addStock);
                 }
             }
-            TempData["AddFailure"] = "err_Failure";
+            ViewData["AddFailure"] = _stockLocalizer.GetLocalizedString("err_AddFailure");
             ViewBag.StoreId = new SelectList(_storeService.GetStore(), 
                 "Id", "StoreName",stock.StoreId);
-            ViewBag.ProductID = new SelectList(_productSerive.GetProduct(), 
+            ViewBag.ProductID = new SelectList(_productService.GetProduct(), 
                 "Id", "StoreName",stock.ProductId);
             return View();
         }
@@ -86,7 +93,7 @@ namespace TaskUser.Controllers
                 return BadRequest();
             }
             ViewBag.StoreId = new SelectList(_storeService.GetStore(), "Id", "StoreName");
-            ViewBag.ProductID = new SelectList(_productSerive.GetProduct(), "Id", "ProductName");
+            ViewBag.ProductID = new SelectList(_productService.GetProduct(), "Id", "ProductName");
             var getStock = await _stockService.GetIdStock(productId,storeId);
            
             return View(getStock);
@@ -109,7 +116,7 @@ namespace TaskUser.Controllers
                     {
                         
                         await _stockService.EditStock(productId,storeId,editStock);
-                        TempData["EditSuccessfuly"] = "msg_Successfuly";
+                        TempData["EditSuccessfuly"] = _localizer.GetLocalizedString("msg_EditSuccessfuly").ToString();
                         return RedirectToAction("Index");
                     }
                 
@@ -117,9 +124,9 @@ namespace TaskUser.Controllers
                
             }
             
-            TempData["EditFailure"] = "err_Failure";
+            ViewData["EditFailure"] = _stockLocalizer.GetLocalizedString("err_EditFailure");
             ViewBag.StoreId = new SelectList(_storeService.GetStore(), "Id", "StoreName");
-            ViewBag.ProductID = new SelectList(_productSerive.GetProduct(), "Id", "ProductName");
+            ViewBag.ProductID = new SelectList(_productService.GetProduct(), "Id", "ProductName");
             return View();
         }
         /// <summary>
@@ -134,11 +141,11 @@ namespace TaskUser.Controllers
             if (productId !=null && storeId !=null )
             {
                 _stockService.Delete(productId.Value,storeId.Value);
-                TempData["DeleteSuccessfuly"] = "msg_Successfuly";
+                TempData["DeleteSuccessfuly"] = _localizer.GetLocalizedString("msg_DeleteSuccessfuly").ToString();
                 return RedirectToAction("Index");
                 
             }
-            TempData["DeleteFailure"] = "err_Failure";
+            ViewData["DeleteFailure"] = "err_Failure";
             return RedirectToAction("Index");
            
         }

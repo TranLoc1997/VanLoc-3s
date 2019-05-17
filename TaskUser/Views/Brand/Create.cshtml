@@ -10,11 +10,14 @@
 
 
 <div class="container">
-@*     @if (ViewBag.ErrorAdd != null) *@
-@*     { *@
-@*         @Localizer["Add Failure"] *@
-@*                *@
-@*     } *@
+    @if (ViewData["AddFailure"] != null)
+    {
+        <div class="alert alert-info"style="width: 200px">
+            <strong>@ViewData["AddFailure"]</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+        </div>
+ 
+    }
     <form method="post" asp-controller="Brand" asp-action="Create">
         <legend>
             @Localizer.GetLocalizedString("lbl_AddBrand")

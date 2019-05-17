@@ -9,8 +9,7 @@ using TaskUser.Models;
 using TaskUser.ViewsModels;
 using TaskUser.ViewsModels.UserViewsModels;
 
-
-namespace TaskUser.Serivice
+namespace TaskUser.Service
 {
     public interface IUserService
     {
@@ -19,8 +18,8 @@ namespace TaskUser.Serivice
         Task<UserViewsModels> Create(UserViewsModels user);
         Task<EditViewPassword> GetPassword(int? id);
         IEnumerable<User> GetUser();
-        Task<UserViewsModels> GetId(int? id);
-        Task<UserViewsModels> EditAsync(UserViewsModels userParam);
+        Task<EditUserViewsModels> GetId(int? id);
+        Task<EditUserViewsModels> EditAsync(EditUserViewsModels userParam);
         User GetName(string name);
         void Delete(int id);
         Task<bool> UserPassword(EditViewPassword passUser);
@@ -39,12 +38,12 @@ namespace TaskUser.Serivice
             _context = context;
             _mapper = mapper;
         }
-       /// <summary>
-       /// ckeck login
-       /// </summary>
-       /// <param name="email"></param>
-       /// <param name="password"></param>
-       /// <returns>true of flase</returns>
+        /// <summary>
+        /// ckeck login
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns>true of flase</returns>
         public bool Login(string email, string password)
         {
             if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(password))
@@ -63,7 +62,7 @@ namespace TaskUser.Serivice
             return true;
         }
 //get list show user
-        public async Task<List<UserViewsModels>> GetUserListAsync()//
+        public async Task<List<UserViewsModels>> GetUserListAsync()
         {
             var list = await _context.Users.ToListAsync();
             var listUser = _mapper.Map<List<UserViewsModels>>(list);
@@ -95,31 +94,30 @@ namespace TaskUser.Serivice
             return user;
         }
         
-  //get edit id      
-        public async Task<UserViewsModels> GetId(int? id)
+        //get edit id      
+        public async Task<EditUserViewsModels> GetId(int? id)
         {
             var findUser=await _context.Users.FindAsync(id);
-            var userDtos = _mapper.Map<UserViewsModels>(findUser);
+            var userDtos = _mapper.Map<EditUserViewsModels>(findUser);
            
             return userDtos;
           
           
         }
 
-     //post edit id   
+        //post edit id   
 
-        public async Task<UserViewsModels> EditAsync(UserViewsModels userParam)
+        public async Task<EditUserViewsModels> EditAsync(EditUserViewsModels userParam)
         {
             try
             {
                 var user = await _context.Users.FindAsync(userParam.Id);
                 
                 user.Name = userParam.Name;
-               user.Email = userParam.Email;
+                user.Email = userParam.Email;
                 user.Phone = userParam.Phone;
                 user.IsActiver = userParam.IsActiver;
                 user.StoreId = userParam.StoreId;
-                
                 _context.Users.Update(user);
                 await _context.SaveChangesAsync();
                 return userParam;

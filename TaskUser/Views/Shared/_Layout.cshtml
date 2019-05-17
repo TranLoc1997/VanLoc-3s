@@ -36,6 +36,36 @@
             @await Html.PartialAsync("_SibaPartial")
         </div>
         <div class="col-md-10" style="padding-top: 90px">
+            @if (TempData["AddSuccessfuly"] != null)
+            {
+                <div class="alert alert-info"style="width: 200px">
+                    <strong>@TempData["AddSuccessfuly"]</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+                </div>
+ 
+            }
+            @if (TempData["EditSuccessfuly"] != null)
+            {
+                <div class="alert alert-info"style="width: 200px">
+                    <strong>@TempData["EditSuccessfuly"]</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+                </div>
+            }
+            @if (TempData["DeleteSuccessfuly"] != null)
+            {
+                <div class="alert alert-info" style="width: 200px">
+                    <strong>@TempData["DeleteSuccessfuly"]</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+                </div>
+            }
+            @if (TempData["EditPasswordSuccessfuly"] != null)
+            {
+                <div class="alert alert-info" style="width: 200px">
+                    <strong>@TempData["EditPasswordSuccessfuly"]</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+                </div>
+            }
+
             <div class="container-fuld">
                 @RenderBody()
             </div>

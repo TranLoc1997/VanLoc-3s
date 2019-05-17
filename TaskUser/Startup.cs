@@ -16,8 +16,7 @@ using Microsoft.Extensions.Options;
 using TaskUser.Filters;
 using TaskUser.Models;
 using TaskUser.Resources;
-using TaskUser.Serivce;
-using TaskUser.Serivice;
+using TaskUser.Service;
 using TaskUser.Validator;
 
 namespace TaskUser
@@ -94,7 +93,7 @@ namespace TaskUser
 
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IStoreService, StoreService>();
-            services.AddTransient<IProductSerive, ProductSerive>();
+            services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
             services.AddTransient<IBrandService, BrandService>();
             services.AddTransient<IStockService, StockService>();

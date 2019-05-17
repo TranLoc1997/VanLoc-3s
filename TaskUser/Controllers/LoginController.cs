@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.AspNetCore.Mvc;
 using TaskUser.Filters;
 using TaskUser.Models;
-using TaskUser.Serivice;
+using TaskUser.Service;
 using TaskUser.ViewsModels;
 
 namespace TaskUser.Controllers

@@ -1,14 +1,10 @@
-﻿using System;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Localization;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.Extensions.Localization;
 using TaskUser.Filters;
-using TaskUser.Models;
+using TaskUser.Resources;
 using TaskUser.ViewsModels;
-using TaskUser.Serivice;
+using TaskUser.Service;
 using TaskUser.ViewsModels.UserViewsModels;
 
 namespace TaskUser.Controllers
@@ -18,17 +14,26 @@ namespace TaskUser.Controllers
     {
         private readonly IUserService _userService;
         private readonly IStoreService _storeService;
+        private readonly SharedViewLocalizer<CommonResource> _localizer;
+        private readonly SharedViewLocalizer<PasswordResource> _passwordLocalizer;
+        private readonly SharedViewLocalizer<UserResource> _userLocalizer;
         public UserController(
-            DataContext context,
+          
             IUserService userService,
-            IStringLocalizer<UserController> localizer,
-            IStoreService storeService)
+           
+            IStoreService storeService,
+            SharedViewLocalizer<CommonResource> localizer,
+            SharedViewLocalizer<PasswordResource> passwordLocalizer,
+            SharedViewLocalizer<UserResource> userLocalizer
+            )
         {
           
             _userService = userService;
             _storeService = storeService;
-           
-            
+            _localizer = localizer;
+            _passwordLocalizer = passwordLocalizer;
+            _userLocalizer = userLocalizer;
+
         }
      
         [HttpGet]
@@ -80,11 +85,11 @@ namespace TaskUser.Controllers
                 if (addUser != null)
                 {
                     
-                    TempData["AddSuccessfuly"] = "msg_Successfuly";
+                    TempData["AddSuccessfuly"] = _localizer.GetLocalizedString("msg_AddSuccessfuly").ToString();
                     return RedirectToAction("Index", addUser);
                 }
             }
-            TempData["AddFailure"] = "err_Failure";
+            ViewData["AddFailure"] =_userLocalizer.GetLocalizedString("err_AddFailure");
             ViewBag.StoreId = new SelectList(_storeService.GetStore(), 
                 "Id", "StoreName",user.StoreId);
             return View();
@@ -121,16 +126,15 @@ namespace TaskUser.Controllers
         /// <returns>index of User else view</returns>
 
         [HttpPost]
-        public async Task<IActionResult> Edit(UserViewsModels userParam)
+        public async Task<IActionResult> Edit(EditUserViewsModels userParam)
         {
             if (ModelState.IsValid)
             {
-                
                 await _userService.EditAsync(userParam);
-                TempData["EditSuccessfuly"] = "msg_Successfuly";
+                TempData["EditSuccessfuly"] = _localizer.GetLocalizedString("msg_EditSuccessfuly").ToString();
                 return RedirectToAction("Index");
             }
-            TempData["EditFailure"] = "err_Failure";
+            ViewData["EditFailure"] = _userLocalizer.GetLocalizedString("err_EditFailure");
             ViewBag.StoreId = new SelectList(_storeService.GetStore(), "Id", "StoreName",userParam.StoreId);
             return View(userParam);
         }
@@ -163,12 +167,12 @@ namespace TaskUser.Controllers
                 var users =  await _userService.UserPassword(passwordUser);
                 if (users)
                 {
-                    TempData["EditSuccessfuly"] = "msg_Successfuly";
+                    TempData["EditPasswordSuccessfuly"] = _localizer.GetLocalizedString("msg_EditPasswordSuccessfuly").ToString();
                 }        
-                TempData["EditFailure"] = "err_Failure";
+                ViewData["EditPasswordFailure"] = "err_PasswordFailure";
                 return PartialView("_ChangePassword",passwordUser);       
             }
-            TempData["EditFailure"] = "err_Failure";
+            ViewData["EditPasswordFailure"] = "err_PasswordFailure";
             return PartialView("_ChangePassword",passwordUser);
         }
 
@@ -183,10 +187,10 @@ namespace TaskUser.Controllers
             if (id!=null)
             {
                 _userService.Delete(id.Value);
-                TempData["DeleteSuccessfuly"] = "msg_Successfuly";
+                TempData["DeleteSuccessfuly"] = _localizer.GetLocalizedString("msg_DeleteSuccessfuly").ToString();
                 return RedirectToAction("Index");
             }
-            TempData["DeleteFailure"] = "err_Failure";
+            ViewData["DeleteFailure"] = "err_Failure";
             return RedirectToAction("Index");
             
         }

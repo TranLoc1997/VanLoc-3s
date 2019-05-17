@@ -7,11 +7,14 @@
 }
 
 <div class="container">
-@*     @if (ViewBag.ErrorEdit != null) *@
-@*     { *@
-@*         @Localizer["Edit Failure"] *@
-@*          *@
-@*     } *@
+    @if (ViewData["EditFailure"] != null)
+    {
+        <div class="alert alert-info"style="width: 200px">
+            <strong>@ViewData["EditFailure"]</strong>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">x</button>
+        </div>
+ 
+    }
     <form method="post" asp-controller="Product" enctype="multipart/form-data" asp-action="Edit">
         <legend>@ProductLocalizer.GetLocalizedString("lbl_EditProduct")</legend>
        <div class="form-group col-xs-6">

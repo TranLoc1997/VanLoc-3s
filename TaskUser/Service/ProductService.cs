@@ -7,11 +7,10 @@ using Microsoft.EntityFrameworkCore;
 using TaskUser.Models;
 using TaskUser.Models.Production;
 using TaskUser.ViewsModels.ProductViewsModels;
-using TaskUser.ViewsModels.StoreViewsModels;
 
-namespace TaskUser.Serivce
+namespace TaskUser.Service
 {
-    public interface IProductSerive
+    public interface IProductService
     {
         Task<List<ProductViewsModels>> GetProductListAsync();
 
@@ -24,12 +23,12 @@ namespace TaskUser.Serivce
         void Delete(int id);
     }
 
-    public class ProductSerive : IProductSerive
+    public class ProductService : IProductService
     {
         private readonly DataContext _context;
         private readonly IMapper _mapper;
 
-        public ProductSerive(DataContext context, IMapper mapper)
+        public ProductService(DataContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -74,7 +73,7 @@ namespace TaskUser.Serivce
         public async Task<ProductViewsModels> GetIdProduct(int? id)
         {
             var findProduct= await _context.Products.FindAsync(id);
-            var productDtos = _mapper.Map<ProductViewsModels>(findProduct);;
+            var productDtos = _mapper.Map<ProductViewsModels>(findProduct);
             return productDtos;
         }
         // edit post product

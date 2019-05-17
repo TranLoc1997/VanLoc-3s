@@ -8,7 +8,7 @@ using TaskUser.Models;
 using TaskUser.Models.Production;
 using TaskUser.ViewsModels.BrandViewsModels;
 
-namespace TaskUser.Serivice
+namespace TaskUser.Service
 {
    
     public interface IBrandService

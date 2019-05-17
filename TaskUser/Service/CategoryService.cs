@@ -8,7 +8,7 @@ using TaskUser.Models;
 using TaskUser.Models.Production;
 using TaskUser.ViewsModels.CategoryViewsModels;
 
-namespace TaskUser.Serivice
+namespace TaskUser.Service
 {
     public interface ICategoryService
     {
