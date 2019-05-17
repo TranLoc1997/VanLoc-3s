@@ -1,10 +1,8 @@
 ﻿@model TaskUser.ViewsModels.StoreViewsModels.StoreViewModels
-@using TaskUser.Resources
 
-@inject SharedViewLocalizer<StoreResource> Localizer
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = @StoreLocalizer.GetLocalizedString("lbl_AddStore");
     Layout = "_Layout";
 }
 

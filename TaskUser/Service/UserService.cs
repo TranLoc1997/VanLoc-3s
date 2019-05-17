@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using TaskUser.Encryption;
 using TaskUser.Models;
+using TaskUser.Models.Sales;
 using TaskUser.ViewsModels;
 using TaskUser.ViewsModels.UserViewsModels;
 

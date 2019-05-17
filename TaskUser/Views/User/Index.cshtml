@@ -5,12 +5,9 @@
 <link rel="stylesheet" href="~/css/indexcs.css" />
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title =@UserLocalizer.GetLocalizedString("lbl_UserManagement");
     Layout = "_Layout";
 }
-
-
-  
 
 
 <div class="container-fuld">
@@ -20,24 +17,7 @@
            @UserLocalizer.GetLocalizedString("lbl_UserManagement")
         </h1>
         
-@*         @if (TempData["create"] != null) *@
-@*         { *@
-@*             <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Users Success"]</h4> *@
-@*          *@
-@*          *@
-@*         } *@
-@*         @if (@TempData["edit"] != null) *@
-@*         { *@
-@*             <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Edit Users Success"]</h4> *@
-@*          *@
-@*          *@
-@*         } *@
-@*         @if (ViewData["Password"] != null) *@
-@*         { *@
-@*             <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Edit Password Success"]</h4> *@
-@*          *@
-@*          *@
-@*         } *@
+
     </div>
  <table class="table table-bordered table-sm">
         <thead align="center">

@@ -3,7 +3,7 @@
 @using TaskUser.ViewsModels.CategoryViewsModels
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = @CategoryLocalizer.GetLocalizedString("lbl_EditCategory");
     Layout = "_Layout";
 }
 
@@ -18,11 +18,11 @@
  
     }
     <form method="post" asp-controller="Category" asp-action="Edit">
-        <legend>@Localizer.GetLocalizedString("lbl_EditCategory")</legend>
+        <legend>@CategoryLocalizer.GetLocalizedString("lbl_EditCategory")</legend>
         @*<input type="hidden" class="form-control" asp-for="Id"  placeholder="Your name" required>*@
         <div class="form-group col-xs-6">
             <label>
-                @Localizer.GetLocalizedString("lbl_CategoryName")
+                @CategoryLocalizer.GetLocalizedString("lbl_CategoryName")
                 
             </label>
             <input type="text" class="form-control" asp-for="CategoryName" placeholder="CategoryName" >
@@ -32,7 +32,7 @@
                        
         <div class="form-group col-xs-12">
             <button type="submit" class="btn btn-primary btn-lg btn-block">
-                @Localizer.GetLocalizedString("btn_Edit")
+                @CategoryLocalizer.GetLocalizedString("btn_Edit")
             </button>
         </div>
     </form>

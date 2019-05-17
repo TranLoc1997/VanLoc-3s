@@ -1,11 +1,8 @@
 ﻿@model TaskUser.ViewsModels.UserViewsModels.UserViewsModels
-@using TaskUser.Resources
-
-@inject SharedViewLocalizer<UserResource> Localizer
 
 
 @{
-   
+    ViewBag.Title =UserLocalizer.GetLocalizedString("lbl_AddUser");
     Layout = "_Layout";
 }
 @* <p>@ViewBag.Err</p> *@

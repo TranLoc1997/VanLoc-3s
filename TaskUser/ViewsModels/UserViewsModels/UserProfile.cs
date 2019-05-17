@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using TaskUser.Models;
+using TaskUser.Models.Sales;
 
 namespace TaskUser.ViewsModels.UserViewsModels
 {

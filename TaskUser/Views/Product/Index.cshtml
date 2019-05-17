@@ -5,24 +5,13 @@
 
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title = @ProductLocalizer.GetLocalizedString("lbl_ProductManagement");
     Layout = "_Layout";
 }
 
 <div class="container-fuld">
     <h1 align="center">@ProductLocalizer.GetLocalizedString("lbl_ProductManagement")</h1>
-@*     @if (TempData["create"] != null) *@
-@*     { *@
-@*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Add Product Success"]</h4> *@
-@*          *@
-@*          *@
-@*     } *@
-@*     @if (TempData["edit"] != null) *@
-@*     { *@
-@*         <h4  class="close" data-dismiss="alert" aria-label="Close" >@Localizer["Edit Product Success"]</h4> *@
-@*          *@
-@*          *@
-@*     } *@
+
 
     <table class="table table-bordered table-sm">
         <thead align="center">

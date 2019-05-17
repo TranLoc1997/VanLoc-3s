@@ -7,6 +7,8 @@ namespace TaskUser.Filters
 {
     /// <summary>
     /// Quyen truy cap vao cac trang
+    /// OnActionExecuting chạy trước
+    /// OnActionExecuted chạy sau 
     /// </summary>
     public class ActionFilter: IActionFilter
     {

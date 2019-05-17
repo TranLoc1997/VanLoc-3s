@@ -7,7 +7,7 @@
 
 
 @{
-    ViewBag.Title = "title";
+    ViewBag.Title =CategoryLocalizer.GetLocalizedString("lbl_AddCategory");
     Layout = "_Layout";
 }
 
@@ -22,11 +22,11 @@
  
     }
     <form method="post" asp-controller="Category" asp-action="Create">
-        <legend>@Localizer.GetLocalizedString("lbl_AddCategory")</legend>
+        <legend>@CategoryLocalizer.GetLocalizedString("lbl_AddCategory")</legend>
         @*<input type="hidden" class="form-control" asp-for="Id"  placeholder="Your name" required>*@
         <div class="form-group col-xs-6">
             <label>
-                @Localizer.GetLocalizedString("lbl_CategoryName")
+                @CategoryLocalizer.GetLocalizedString("lbl_CategoryName")
                 
             </label>
             <input type="text" class="form-control" asp-for="CategoryName" placeholder="CategoryName" >
@@ -37,7 +37,7 @@
         <div class="form-group col-xs-12">
             <button type="submit" class="btn btn-primary btn-lg btn-block">
 
-                @Localizer.GetLocalizedString("btn_AddNewCategory")
+                @CategoryLocalizer.GetLocalizedString("btn_AddNewCategory")
 
             </button>
         </div>

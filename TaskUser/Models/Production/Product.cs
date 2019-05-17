@@ -2,22 +2,7 @@
 {
     public class Product
     {
-//        public Product()
-//        {
-//            
-//        }
-//        public Product(int id, string productName, string picture,int brandId, int categoryId, int modelYear, decimal listPrice)
-//        {
-//            Id = id;
-//            ProductName = productName;
-//            Picture = picture;
-//            BrandId = brandId;
-//            CategoryId = categoryId;
-//            ModelYear = modelYear;
-//            ListPrice = listPrice;
-//            
-//            
-//        }
+
         public int Id { get; set; }
         public string ProductName { get; set; }
 //        [DisplayFormat(DataFormatString = "{0:0,0}")]

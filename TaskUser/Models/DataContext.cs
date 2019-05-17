@@ -11,10 +11,8 @@ namespace TaskUser.Models
         public DataContext(DbContextOptions options) : base(options)  
         {  
         }
-        
-        
+
         public DbSet<User> Users { get; set;}
-      
         public DbSet<Store> Stores  { get; set;}
         public DbSet<Brand> Brands  { get; set;}
         public DbSet<Category> Categories  { get; set;}
@@ -29,7 +27,6 @@ namespace TaskUser.Models
             modelBuilder.Entity<User>().Property(t => t.PassWord).IsRequired().HasMaxLength(100);
             modelBuilder.Entity<User>().Property(t => t.Phone).IsRequired().HasMaxLength(50);
             modelBuilder.Entity<User>().Property(t => t.IsActiver);
-            
             modelBuilder.Entity<Store>().ToTable("Store");
             modelBuilder.Entity<Store>().Property(t => t.StoreName).IsRequired().HasMaxLength(255);
             modelBuilder.Entity<Store>().Property(t => t.Email).IsRequired().HasMaxLength(255);
@@ -38,7 +35,6 @@ namespace TaskUser.Models
             modelBuilder.Entity<Store>().Property(t => t.State).IsRequired().HasMaxLength(10);
             modelBuilder.Entity<Store>().Property(t => t.City).IsRequired().HasMaxLength(255);
             modelBuilder.Entity<Store>().Property(t => t.ZipCode).IsRequired().HasMaxLength(50);
-            
             modelBuilder.Entity<Customer>().ToTable("Customer");
             modelBuilder.Entity<Customer>().Property(t => t.Name).IsRequired().HasMaxLength(255);
             modelBuilder.Entity<Customer>().Property(t => t.Email).IsRequired().HasMaxLength(255);
@@ -47,14 +43,10 @@ namespace TaskUser.Models
             modelBuilder.Entity<Customer>().Property(t => t.State).IsRequired().HasMaxLength(10);
             modelBuilder.Entity<Customer>().Property(t => t.City).IsRequired().HasMaxLength(255);
             modelBuilder.Entity<Customer>().Property(t => t.ZipCode).IsRequired().HasMaxLength(50);
-            
-//    production   
             modelBuilder.Entity<Brand>().ToTable("Brand");
             modelBuilder.Entity<Brand>().Property(t => t.BrandName).IsRequired().HasMaxLength(255);
-            
             modelBuilder.Entity<Category>().ToTable("Category");
             modelBuilder.Entity<Category>().Property(t => t.CategoryName).IsRequired().HasMaxLength(255);
-            
             modelBuilder.Entity<Product>().ToTable("Product");
             modelBuilder.Entity<Product>().Property(t => t.ProductName).IsRequired().HasMaxLength(255);
             modelBuilder.Entity<Product>().Property(t => t.BrandId).IsRequired();
@@ -63,14 +55,11 @@ namespace TaskUser.Models
             modelBuilder.Entity<Product>().Property(t => t.ModelYear).IsRequired();
             modelBuilder.Entity<Product>().Property(t => t.Picture).IsRequired().HasMaxLength(255);
             modelBuilder.Entity<Product>().Property(t => t.ListPrice).IsRequired();
-            
             modelBuilder.Entity<Stock>().ToTable("Stock");
             modelBuilder.Entity<Stock>().Property(t => t.StoreId).IsRequired().HasMaxLength(255);
-            
             modelBuilder.Entity<Stock>().Property(t => t.ProductId).IsRequired().HasMaxLength(255);
             modelBuilder.Entity<Stock>().Property(t => t.Quantity).IsRequired();
-            
-            
+   
             
             
 
@@ -132,14 +121,12 @@ namespace TaskUser.Models
             modelBuilder.Entity<Stock>().HasData(
                 new Stock()
                 {
-//                    Id = 1,
                     StoreId = 1,
                     ProductId = 1,
-                    Quantity = 1,
-                    
+                    Quantity = 1
                 }
             );
-            //    production 
+
             
           
       
