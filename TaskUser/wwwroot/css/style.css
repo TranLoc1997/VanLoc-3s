@@ -9976,7 +9976,9 @@ pre code {
 .table tbody + tbody {
   border-top: 2px solid #f3f3f3;
 }
-
+.table-sm{
+  border: 3px skyblue;
+}
 .table-sm th,
 .table-sm td {
   padding: 0.3rem;
